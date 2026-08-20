@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026 待产包·宝宝用品清单 · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 6 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" class="active" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">👜</span>待产与入院</div>
+        <h2 class="doc-title">2026 待产包·宝宝用品清单</h2>
+      </header>
+      <div class="doc-body"><h2>宝宝用品清单</h2>
+<h3>主清单</h3>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>物品</th>
+<th>数量</th>
+<th>备注（个人经验）</th>
+<th>可参考品牌</th>
+<th>必要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>纸尿裤 NB码+S码</td>
+<td>至少各100片</td>
+<td>多囤试用装，6-7斤大概200片nb。如果宝宝体重预估大于8斤直接用s，一天需10-12片</td>
+<td>大王老光羽，好奇小森林，帮宝适黑金帮，露安适 bbc皇室，碧芭大鱼</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>新生儿尿不湿怎么囤</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>月龄 （体重）</td>
+<td>尺码</td>
+<td>预估用量</td>
+<td>囤货建议</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>0-1月 ≤5kg</td>
+<td>NB</td>
+<td>10-12/日 200-300片</td>
+<td>先买100片左右，不够再买，出生＞8斤直接穿S</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>2-3月 4-8kg</td>
+<td>S</td>
+<td>8-10/日 350-400片</td>
+<td>大腿粗12斤左右就要换M码</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>4-6月 6-11kg</td>
+<td>M</td>
+<td>6-8/日 300-400片</td>
+<td>大腿粗18斤左右就要换L码，翻身后可换拉拉裤</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>7-11月 9-14kg</td>
+<td>L</td>
+<td>5-6/日 700-900片</td>
+<td>使用时间最长，有活动可多囤</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>12-17月 ＞13kg</td>
+<td>XL</td>
+<td>5-6/日 500片</td>
+<td>有活动可多囤</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>18-24月 ＞15kg</td>
+<td>XXL</td>
+<td>3-5/日 视情况而定</td>
+<td>可自主如厕时，在午睡和晚上才穿</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>一次性隔尿垫</td>
+<td>2包</td>
+<td>可以多囤，长期使用，一包80片左右</td>
+<td>德佑金装/银装</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>可水洗隔尿垫</td>
+<td>2条</td>
+<td>宝宝大一点可以用可水洗的，买大不买小</td>
+<td>littletiny，嫚熙</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>婴儿碘伏棉签</td>
+<td>1盒</td>
+<td>肚脐护理消毒</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>婴儿棉签</td>
+<td>1盒</td>
+<td>婴儿双头棉签，可以给宝宝清理耳朵，鼻子</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>指甲剪</td>
+<td>1个</td>
+<td>防止宝宝抓伤自己，日康便宜好用</td>
+<td>日康，贝亲</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>小衣架</td>
+<td>20-30个</td>
+<td>可伸缩很实用，还能挂一串节省空间</td>
+<td>蒂爱</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>落地衣架</td>
+<td>1个</td>
+<td>视情况，宝宝的衣物可以撑开晾晒，很方便</td>
+<td>蒂爱，3层的更好</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>洗衣液/洗衣皂</td>
+<td>2瓶</td>
+<td>选择不含荧光剂、成分安全、温和不刺激的</td>
+<td>wickle，保宁，英氏</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>理发器</td>
+<td>1套</td>
+<td>不是必备，以后在家操作更方便</td>
+<td>樱舒</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>小夜灯</td>
+<td>1个</td>
+<td>推荐用遥控的，很方便</td>
+<td>自备</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>奶瓶</td>
+<td>1大1小：160+240ml 配ss奶嘴</td>
+<td>大多数宝宝接受,经济实惠</td>
+<td>贝亲</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>奶粉</td>
+<td>1罐</td>
+<td>小罐即可，避免吃不完浪费。一定提前做好功课选好，宝宝不能随意转奶！！</td>
+<td>自选</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>奶瓶刷</td>
+<td>1套</td>
+<td>建议硅胶材质，不易滋生细菌，最好有底座可以立起来</td>
+<td>贝亲，波咯咯</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>奶瓶清洁剂</td>
+<td>1瓶</td>
+<td>选A类的，推荐泡沫型的好清洗</td>
+<td>wickle！！</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>恒温水壶</td>
+<td>1个</td>
+<td>看自己喜欢的颜值选，没什么技术含量，区别不大</td>
+<td>波咯咯，小白熊，可优比</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>消毒器/消毒柜</td>
+<td>1个</td>
+<td>推荐紫外线的，要选灯珠。灯管和集成灯管都不行。选择20L左右大容量的，后期玩具、餐具烘干消毒都能用</td>
+<td>波咯咯，大宇，小白熊</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>温奶器</td>
+<td>1个</td>
+<td>瓶喂母乳+奶瓶需要</td>
+<td>小白熊，波咯咯</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>硅胶软勺</td>
+<td>1个</td>
+<td>刚生产完还没开奶的时候用硅胶勺喂宝宝喝奶粉，防止跟奶嘴混淆，以后吃辅食也用得到（最好带盒子）</td>
+<td>世喜，英氏</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>安抚奶嘴</td>
+<td>1个</td>
+<td>不是必须，可以备一个以防需要</td>
+<td>新安怡，世喜</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>云柔巾</td>
+<td>若干</td>
+<td>相当于柔软的纸巾，新生儿皮肤娇嫩，普通纸巾容易擦红。按箱囤，需要擦脸/擦口水/擦pp</td>
+<td>可心柔yyds</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>棉柔巾</td>
+<td>若干</td>
+<td>相当于洗脸巾。按箱囤，打湿洗脸洗pp。新生儿最好买全棉的棉柔巾，不要买成“绵柔巾“</td>
+<td>全棉时代(不要黄色包装）可优比蓝胖子，德佑羊咩咩</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>湿巾</td>
+<td>2-3包</td>
+<td>不需多囤，新生儿用得少</td>
+<td>babyacare紫盖</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>浴巾</td>
+<td>3-4条</td>
+<td>可多准备，买6层的实用，夏天可当包被/小盖毯。冬天买毛绒厚款的</td>
+<td>全棉时代，嫚熙，bbc</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>口水巾</td>
+<td>4-6条</td>
+<td>可多准备，洗澡+吐奶+拍嗝的时候垫肩膀</td>
+<td>全棉时代、嫚熙</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>洗发沐浴二合一</td>
+<td>1瓶</td>
+<td>按压式的较方便，不用多囤，用得慢</td>
+<td>艾维诺</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>面霜</td>
+<td>1瓶</td>
+<td>如果有湿疹建议纽强/雅漾AD/顺峰宝宝，一定要做好全身保湿！！</td>
+<td>everden，妙思乐思恬雅，戴可思</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>身体乳</td>
+<td>1瓶</td>
+<td>大白罐便yi大罐，全家都能用，夏天薄涂</td>
+<td>丝塔芙大白罐，艾维诺，戴可思</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>抚触油</td>
+<td>1瓶</td>
+<td>清理头垢+按摩做抚触，对宝宝很有好处</td>
+<td>evereden</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>护臀膏</td>
+<td>1支</td>
+<td>日常护理用，严重+氧化锌软膏，破皮了+涂百多邦/红霉素软膏</td>
+<td>拜耳</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>桃子水</td>
+<td>1瓶</td>
+<td>夏季必备，预防痱子/淹脖子，不要买粉状的</td>
+<td>宇津，chuchu，贝亲</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>护脐贴</td>
+<td>1盒</td>
+<td>无需多囤，新生儿洗澡游泳的时候使用</td>
+<td>嫚熙</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>洗脸盆</td>
+<td>2-3个</td>
+<td>洗脸、洗pp区分开</td>
+<td>茶花，bebetour</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>折叠洗澡盆+浴网</td>
+<td>1个</td>
+<td>买可折叠的方便收纳，浴网比浴垫更实用且不易发霉</td>
+<td>蒂爱，嫚熙</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>水温计</td>
+<td>1个</td>
+<td>新生儿洗澡温度不可超过40℃，最适宜温度为36-37℃，冬季或者感冒期间可稍高。</td>
+<td>一般买浴盆有送</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>半背衣服</td>
+<td>3-4件</td>
+<td>换尿不湿方便，选纯棉A类。夏天无需裤子，下半身基本穿纸尿裤即可</td>
+<td>乖奇熊，全棉时代，aqpa</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>连体衣</td>
+<td>至少各2套</td>
+<td>纯棉A类，看宝宝估算体重，52和59各先备2件，出生后再视情况购买</td>
+<td>乖奇熊，全棉时代，aqpa</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>包被</td>
+<td>2个</td>
+<td>一薄一夹棉。夏天可用纱布浴巾代替</td>
+<td>嫚熙 全棉时代</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>睡袋</td>
+<td>2件</td>
+<td>新生儿推荐投降式睡袋，防惊跳效果好</td>
+<td>lovetodream</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>肚围</td>
+<td>2条</td>
+<td>新生儿怕热不怕冷，天气如果太热，可以穿肚围挡住小肚子</td>
+<td>嫚熙，贝肽斯</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>胎帽+袜子</td>
+<td>2件/4双</td>
+<td>不是大夏天可备，棉质的，柔软的即可</td>
+<td>嫚熙，童泰，乖奇熊</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>新生儿衣服怎么囤</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>码数</td>
+<td>月龄</td>
+<td>身高</td>
+<td>体重</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>52码</td>
+<td>0-1</td>
+<td>46-52cm</td>
+<td>2-3.5kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>59码</td>
+<td>1-3</td>
+<td>52-59cm</td>
+<td>3.5-7kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>66码</td>
+<td>3-6</td>
+<td>60-68cm</td>
+<td>7-8.5kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>73码</td>
+<td>6-9</td>
+<td>66-73cm</td>
+<td>7.5-9kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>80码</td>
+<td>9-18</td>
+<td>72-80cm</td>
+<td>8.5-10kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>90码</td>
+<td>12-24</td>
+<td>78-90cm</td>
+<td>9.5-13kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>100码</td>
+<td>12-24</td>
+<td>90-100cm</td>
+<td>10-13.5kg</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>体温枪</td>
+<td>1个</td>
+<td>操作方便而且准 只要几秒就能测出</td>
+<td>博朗6520/6525耳温枪</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>维生素AD/D3</td>
+<td>1盒</td>
+<td>出生15天后补充，每天一颗，滴入嘴巴里</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>氧化锌软膏</td>
+<td>1罐</td>
+<td>对红屁屁非常有效</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>炉甘石洗剂</td>
+<td>1瓶</td>
+<td>如果有湿疹/痱子，止痒效果好</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>黑白卡/小沙锤</td>
+<td>1件</td>
+<td>锻炼追视/抓握和听力</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>安抚玩偶</td>
+<td>1个</td>
+<td>不是必须</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>婴儿床+床上用品</td>
+<td>1套</td>
+<td>拼接床更实用，最好和大床一个尺寸，提前买散味</td>
+<td></td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>尿布台</td>
+<td>1件</td>
+<td>超级实用！拯救老腰必备神器</td>
+<td>bbc，可优比</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>婴儿洗衣机</td>
+<td>1台</td>
+<td>真香~最好有快洗和煮洗功能</td>
+<td>海信，美的，小天鹅</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>置物架小推车</td>
+<td>1辆</td>
+<td>可移动的收纳小推车特别方便</td>
+<td>也雅</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>婴儿推车</td>
+<td>1辆</td>
+<td>可坐可躺轻便的，能独立坐了适合遛娃神器</td>
+<td>逸乐途，好孩子</td>
+</tr>
+<tr>
+<td>2026 待产包</td>
+<td>宝宝用品清单</td>
+<td>安全座椅</td>
+<td>1台</td>
+<td>要i-size认证的</td>
+<td>宝得适，猫头鹰，宝贝第一</td>
+</tr>
+</tbody>
+</table>
+<h3>新生儿尿不湿尺码参考</h3>
+<table>
+<thead>
+<tr>
+<th>月龄</th>
+<th>体重</th>
+<th>尺码</th>
+<th>预估用量</th>
+<th>囤货建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-1月</td>
+<td>≤5kg</td>
+<td>NB</td>
+<td>10-12片/日，200-300片</td>
+<td>先买100片左右，不够再买，出生&gt;8斤直接穿S</td>
+</tr>
+<tr>
+<td>2-3月</td>
+<td>4-8kg</td>
+<td>S</td>
+<td>8-10片/日，350-400片</td>
+<td>大腿粗12斤左右就要换M码</td>
+</tr>
+<tr>
+<td>4-6月</td>
+<td>6-11kg</td>
+<td>M</td>
+<td>6-8片/日，300-400片</td>
+<td>大腿粗18斤左右就要换L码，翻身后可换拉拉裤</td>
+</tr>
+<tr>
+<td>7-11月</td>
+<td>9-14kg</td>
+<td>L</td>
+<td>5-6片/日，700-900片</td>
+<td>使用时间最长，有活动可多囤</td>
+</tr>
+<tr>
+<td>12-17月</td>
+<td>&gt;13kg</td>
+<td>XL</td>
+<td>5-6片/日，500片</td>
+<td>有活动可多囤</td>
+</tr>
+<tr>
+<td>18-24月</td>
+<td>&gt;15kg</td>
+<td>XXL</td>
+<td>3-5片/日，视情况而定</td>
+<td>可自主如厕时，仅午睡和晚上穿</td>
+</tr>
+</tbody>
+</table>
+<h3>新生儿衣服尺码参考</h3>
+<table>
+<thead>
+<tr>
+<th>码数</th>
+<th>月龄</th>
+<th>身高</th>
+<th>体重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>52码</td>
+<td>0-1月</td>
+<td>46-52cm</td>
+<td>2-3.5kg</td>
+</tr>
+<tr>
+<td>59码</td>
+<td>1-3月</td>
+<td>52-59cm</td>
+<td>3.5-7kg</td>
+</tr>
+<tr>
+<td>66码</td>
+<td>3-6月</td>
+<td>60-68cm</td>
+<td>7-8.5kg</td>
+</tr>
+<tr>
+<td>73码</td>
+<td>6-9月</td>
+<td>66-73cm</td>
+<td>7.5-9kg</td>
+</tr>
+<tr>
+<td>80码</td>
+<td>9-18月</td>
+<td>72-80cm</td>
+<td>8.5-10kg</td>
+</tr>
+<tr>
+<td>90码</td>
+<td>12-24月</td>
+<td>78-90cm</td>
+<td>9.5-13kg</td>
+</tr>
+<tr>
+<td>100码</td>
+<td>12-24月</td>
+<td>90-100cm</td>
+<td>10-13.5kg</td>
+</tr>
+</tbody>
+</table></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev" href="XLSX_MOM.html"><span class="cn-label">← 上一章</span><span class="cn-title">2026 待产包·妈妈用品清单</span></a><a class="next" href="XLSX_HOSP.html"><span class="cn-label">下一章 →</span><span class="cn-title">2026 待产包·入院清单（精简版）</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
