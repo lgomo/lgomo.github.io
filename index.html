@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>宝宝好 · 孕产育儿资料库</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>v2.0 · 共 20 章</small></div>
+</header>
+<div class="catalog">
+  <p class="catalog-intro">点击任意章节卡片进入独立页面阅读，每页底部有上一章 / 下一章跳转按钮（也可用键盘 ← / → 切换）。</p>
+  <section class="cat-group"><h3 class="cat-group-title"><span class="cat-group-icon">🤰</span>孕期 <small style="color:var(--muted);font-weight:400;font-size:13px;">4 篇</small></h3><div class="card-grid"><a class="card" href="docs/怀孕1_40周一张表讲清楚.html"><div class="card-title"><span>怀孕1-40周一张表讲清楚</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 1 / 20 章</span>孕期</div></a><a class="card" href="docs/孕期食谱.html"><div class="card-title"><span>孕期食谱</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 2 / 20 章</span>孕期</div></a><a class="card" href="docs/准爸爸备忘录.html"><div class="card-title"><span>准爸爸备忘录</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 3 / 20 章</span>孕期</div></a><a class="card" href="docs/孕晚期准爸爸理论考试.html"><div class="card-title"><span>孕晚期准爸爸理论考试（答案版）</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 4 / 20 章</span>孕期</div></a></div></section>
+<section class="cat-group"><h3 class="cat-group-title"><span class="cat-group-icon">👜</span>待产与入院 <small style="color:var(--muted);font-weight:400;font-size:13px;">3 篇</small></h3><div class="card-grid"><a class="card" href="docs/XLSX_MOM.html"><div class="card-title"><span>2026 待产包·妈妈用品清单</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 5 / 20 章</span>待产与入院</div></a><a class="card" href="docs/XLSX_BABY.html"><div class="card-title"><span>2026 待产包·宝宝用品清单</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 6 / 20 章</span>待产与入院</div></a><a class="card" href="docs/XLSX_HOSP.html"><div class="card-title"><span>2026 待产包·入院清单（精简版）</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 7 / 20 章</span>待产与入院</div></a></div></section>
+<section class="cat-group"><h3 class="cat-group-title"><span class="cat-group-icon">🌙</span>产后月子 <small style="color:var(--muted);font-weight:400;font-size:13px;">8 篇</small></h3><div class="card-grid"><a class="card" href="docs/崔玉涛顺产1_42天日程表.html"><div class="card-title"><span>崔玉涛 · 顺产 1-42 天日程表</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 8 / 20 章</span>产后月子</div></a><a class="card" href="docs/崔玉涛刨妇产1_42天日程表.html"><div class="card-title"><span>崔玉涛 · 剖腹产 1-42 天日程表</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 9 / 20 章</span>产后月子</div></a><a class="card" href="docs/42天顺产剖腹产日程表.html"><div class="card-title"><span>42 天顺产剖腹产日程表</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 10 / 20 章</span>产后月子</div></a><a class="card" href="docs/42天月子餐打印照着吃.html"><div class="card-title"><span>42 天月子餐（打印照着吃）</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 11 / 20 章</span>产后月子</div></a><a class="card" href="docs/剖腹产42天月子餐.html"><div class="card-title"><span>剖腹产 42 天月子餐</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 12 / 20 章</span>产后月子</div></a><a class="card" href="docs/月嫂整理的坐月子经验.html"><div class="card-title"><span>月嫂整理的坐月子经验</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 13 / 20 章</span>产后月子</div></a><a class="card" href="docs/在做一次月子一定会做的35件事.html"><div class="card-title"><span>再做一次月子一定会做的 35 件事</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 14 / 20 章</span>产后月子</div></a><a class="card" href="docs/XLSX_MEAL.html"><div class="card-title"><span>月子餐 42 天食谱（详）</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 15 / 20 章</span>产后月子</div></a></div></section>
+<section class="cat-group"><h3 class="cat-group-title"><span class="cat-group-icon">👶</span>新生儿护理 <small style="color:var(--muted);font-weight:400;font-size:13px;">4 篇</small></h3><div class="card-grid"><a class="card" href="docs/0_12个月护理指南.html"><div class="card-title"><span>0-12 个月护理指南</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 16 / 20 章</span>新生儿护理</div></a><a class="card" href="docs/宝宝第一年每个月要小心的事.html"><div class="card-title"><span>宝宝第一年每个月要小心的事</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 17 / 20 章</span>新生儿护理</div></a><a class="card" href="docs/新生儿第二个月31件事.html"><div class="card-title"><span>新生儿第二个月 31 件事</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 18 / 20 章</span>新生儿护理</div></a><a class="card" href="docs/崔玉涛0_3个月养护指南.html"><div class="card-title"><span>崔玉涛 0-3 个月养护指南</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 19 / 20 章</span>新生儿护理</div></a></div></section>
+<section class="cat-group"><h3 class="cat-group-title"><span class="cat-group-icon">🍼</span>母乳喂养 <small style="color:var(--muted);font-weight:400;font-size:13px;">1 篇</small></h3><div class="card-grid"><a class="card" href="docs/一次性说清开奶_追奶_堵奶.html"><div class="card-title"><span>一次性说清开奶、追奶、堵奶</span><span class="card-arrow">→</span></div><div class="card-meta"><span class="card-counter">第 20 / 20 章</span>母乳喂养</div></a></div></section>
+</div>
+</body>
+</html>
