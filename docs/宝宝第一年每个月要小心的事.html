@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>宝宝第一年每个月要小心的事 · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 17 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" class="active" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">👶</span>新生儿护理</div>
+        <h2 class="doc-title">宝宝第一年每个月要小心的事</h2>
+      </header>
+      <div class="doc-body"><h1>宝宝第一年</h1>
+<h2>每个月要小心的事</h2>
+<h3>一月龄:(一月睡，注意红屁屁)</h3>
+<ol>
+<li>一月龄宝宝还不会闹脾气，每天都在睡(一天能睡 16 个小时)</li>
+<li>宝宝的正常体温是 36.5-37.5℃(腋下)，前 3 个月体温大于 37.5℃ 不能自行在家吃药，尽快去医院</li>
+<li>白天睡觉不用把窗帘全部拉上，留点自然光，让宝宝早点学会区分白天夜晚</li>
+<li>任何人都别亲宝宝嘴巴和手，抱宝宝前要先洗手</li>
+<li>减少外人到家里和接触，特别是生病比如感冒的人</li>
+<li>大部分宝宝都会出现红屁屁，纸尿裤要选超柔软+透气，否则摩擦易红屁屁。便后立即清洗，再用柔软的纸巾吸干屁屁上的水，每天晾屁屁 10 分钟</li>
+<li>宝宝 1 岁前，侧着睡(左右交换睡)，可以睡出圆圆的漂亮头型</li>
+<li>到满月时，宝宝体重会增长 500-1500g，身长增加 4-5cm</li>
+</ol>
+<h3>二月龄:(二月闹，注意胀气)</h3>
+<ol>
+<li>2 月龄的宝宝最令人苦恼的就是肠胀气了。小脸憋得通红，身体扭来扭去，看起来想拉屎，但一直拉不出来或者放不出屁，这就是肠胀气了</li>
+<li>出现二月闹，宝宝可能每天哭 3 小时，大约持续 2 个月左右后好转</li>
+<li>肠胀气/肠绞痛处理方法:</li>
+</ol>
+<ul>
+<li>控制奶量:一天总奶量不超过 800ml</li>
+<li>增加喂奶间隔:比如原来 2 小时吃一次奶，现在改成 2.5 小时喂一次，让宝宝有更多时间消化，减少胀肚</li>
+<li>吃完奶趴 10 分钟:吃完奶 15 分钟后，让宝宝在床上趴一会，有助于快速排气</li>
+<li>喂奶后必做:拍嗝+排气操。将宝宝扛肩上，空心掌从下向上轻拍后背 10 分钟。吃奶之后半小时，让宝宝躺在斜坡枕上，双腿弯曲做蹬自行车的动作，直到听到宝宝噗噗放屁的声音说明排气</li>
+<li>热敷小肚子:在宝宝的小肚肚上，放一块热毛巾或暖水袋(温度不超过 45℃)，促进腹部血液循环，缓解不适</li>
+<li>纸尿裤腰围不能勒肚子，否则，特别容易加重胀气不适<br>
+4. 进入二月，宝宝晚上睡觉时间逐渐变长，妈妈能轻松一些<br>
+5. 连续睡眠不超过 4-5 个小时，不用叫醒喂奶<br>
+6. 宝宝抬头的欲望增加，平时要多给宝宝趴一趴</li>
+</ul>
+<h3>三月龄:(睡眠倒退)</h3>
+<ol>
+<li>宝宝突然出现睡眠倒退，吃完不再睡觉，开始学会玩耍了，你不哄他不睡</li>
+<li>夜用纸尿裤吸量要选大的，不用频繁换影响睡眠</li>
+<li>睡前奶多吃 10-20ml，夜里能睡得更久，或者睡前泡一顿奶粉，更顶饱</li>
+<li>婴儿已经开始区分家里不同人的身份了</li>
+<li>开始培养睡眠习惯:白天不抱睡，晚上不奶睡</li>
+<li>建立睡眠仪式:洗澡→换尿布→拉窗帘→听儿歌讲故事→吃奶→关灯→哄睡，坚持 7 天，后面再带宝宝做这些事情时，就知道:哦，我该睡觉了</li>
+<li>陪宝宝练习发音，帮助宝宝发 a、e 等元音</li>
+<li>早教练习:在宝宝的对面放一面镜子，让宝宝去看/去触摸镜子里的自己</li>
+<li>3 月龄前洗澡不需要频繁使用沐浴露、洗发露</li>
+</ol>
+<h3>四月龄:(四翻身，注意生理性厌奶)</h3>
+<ol>
+<li>宝宝解锁翻身技能，也是宝宝从床上掉下来的高发期，要做好防护</li>
+<li>宝宝不会翻身，可以用玩具吸引，把玩具放在他身旁，他会尝试翻身去拿到自己喜爱的玩具</li>
+<li>宝宝对看过的东西开始有记忆，最开始记住的是接触最密的妈妈的脸</li>
+<li>在户外时可以引导宝宝看较远方的东西，促进宝宝视觉发育</li>
+<li>突然喝奶量减少，如果体重正常、活动状态也正常，不用担心</li>
+<li>带宝宝出去玩时，多介绍宝宝看到过的东西，教会各种事物的名称，宝宝说话早</li>
+<li>宝宝开始有情感需求，渴望和熟悉的人接触，但也不要天天抱着，可以多陪宝宝做游戏</li>
+<li>避免抱睡、奶睡依赖，尝试"嘘拍法"安抚</li>
+</ol>
+<h3>五月龄:(五长牙、口水多)</h3>
+<ol>
+<li>很多宝宝 5 月就会冒出第一颗牙，到在 2 岁半至 3 岁左右才会长全 20 颗牙</li>
+<li>给宝宝买磨牙棒和牙胶，能缓解出牙的不适</li>
+<li>白天让宝宝多啃多咬磨牙棒、牙胶棒，这样宝宝晚上出牙才不费力</li>
+<li>出牙后，睡前喝奶的宝宝，一定要漱口，6 个月后大人要帮宝宝刷牙</li>
+<li>注意口腔卫生，容易引起牙龈发炎，甚至出现轻微发热</li>
+<li>宝宝开始认生了，不要突然让陌生人抱，先征求宝宝 6 宝意见，同意后再给</li>
+<li>给宝宝准备手撕书，锻炼小手灵活性及大脑发育</li>
+<li>宝宝开始有自己的喜怒哀乐了，当他的情绪有波动变化的时候，一定要及时的回应</li>
+</ol>
+<h3>6-8 月龄:(辅食添加、学发音)</h3>
+<ol>
+<li>辅食不是都用到满 6 月龄才能添加，出现这 4 个信号，可以开始添加:<br>
+   ① 体重超过出生时的 2 倍，或者体重已经达到 12 斤<br>
+   ② 大人吃东西时宝宝会盯着，还会伸手抓<br>
+   ③ 能自己独立坐着或靠在椅子后面<br>
+   ④ 给他食物时不再用舌头把食物推出去</li>
+<li>大概 6 月多，宝宝能坐了，高铁米粉为主，排敏后添加肉泥、菜泥</li>
+<li>7-9 月:宝宝爱咬了，从高铁米粉过渡到软烂的粥碎碎面颗粒面、鱼类等泥糊、碎末状食物</li>
+<li>10-12 月:爬得溜甚至会走了，可再添加稠粥类烂面条、松饼等颗粒状食物，吃软米饭、长直面，肉可以小块状</li>
+<li>每次只添加一种新食物，观察 3--5 天，无不良反应后再添加另一种</li>
+<li>6 个月后，宝宝不吃夜奶也能睡一夜，可以在 7-8 月断夜奶，最晚不超过 1 岁</li>
+<li>开始注意立规矩了，给宝宝情绪反馈，让宝宝知道哪些事鼓励做，哪些事不鼓励做</li>
+<li>不少宝宝在 6-8 月会喊 "baba""mama"，说明宝宝能发出一些简单的音节，可以开始教发音了</li>
+</ol>
+<h3>9-12 月龄:(睡整觉、断夜奶、学走路)</h3>
+<ol>
+<li>当宝宝吃辅食正常、出牙后，就可以断夜奶了</li>
+<li>减少夜奶，非常容易蛀牙</li>
+<li>断夜奶信号:每天晚上都奶量比之前减少30ml;当宝宝晚上只吃一两顿奶，而且一共才吃 30~60ml 奶说明断夜奶条件成熟了</li>
+<li>断奶时，可以给宝宝含安抚奶嘴，非常有助于宝宝顺利度过这段困难期</li>
+<li>夜里接觉:如果宝宝夜里会醒，不要立即干预或者 5 喂奶，先观察如果只是哼唧时，等等看，过会可能就自己睡了，这样有助于培养宝宝自己的接觉能力</li>
+<li>选择能一片到天亮的尿不湿，避免因为尿不湿满了导致宝宝中途醒，影响睡眠</li>
+<li>当看到宝宝开始揉眼睛、打哈欠等信号时，就要把他放在床上，让宝宝慢慢学会自主入睡</li>
+<li>到了睡眠点，即使玩得开心，也要哄睡，不然因过头了会闹觉，影响睡眠和长高</li>
+<li>宝宝睡整觉的诀窍:睡前多吃 10-30ml 奶，母乳宝宝也可以单独冲 20ml 奶粉，很顶饱，夜里睡的久</li>
+<li>有些宝宝不会爬就会走了，也是正常的。宝宝学走路不要用坐在里面的学步车，选择可以推着的学步车</li>
+</ol></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev" href="0_12个月护理指南.html"><span class="cn-label">← 上一章</span><span class="cn-title">0-12 个月护理指南</span></a><a class="next" href="新生儿第二个月31件事.html"><span class="cn-label">下一章 →</span><span class="cn-title">新生儿第二个月 31 件事</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
