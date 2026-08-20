@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>怀孕1-40周一张表讲清楚 · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 1 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" class="active" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">🤰</span>孕期</div>
+        <h2 class="doc-title">怀孕1-40周一张表讲清楚</h2>
+      </header>
+      <div class="doc-body"><h1>怀孕1-40周1张表全部讲清楚！</h1>
+<table>
+<thead>
+<tr>
+<th>孕周</th>
+<th>孕检</th>
+<th>营养的需要</th>
+<th>适合吃的食物</th>
+<th>身体的变化</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1—4周（第一个月）</td>
+<td>在家用早孕试纸测出两道杠后（可以多买几个不同品牌的试纸），再去医院抽血、尿检，确认怀孕</td>
+<td>叶酸（防止胎儿生长缺陷）</td>
+<td>富含叶酸的食物：菠菜、芦笋、西蓝花、玉米、花椰菜、胡萝卜、蘑菇、油菜、猪肝、鸡肉、黄豆、豆制品、橙子、樱桃等</td>
+<td>月经停止，身体变化不明显，有的人会出现类似感冒的症状</td>
+<td>①从现在开始培养良好的饮食习惯，调整作息，每晚睡足8/9小时②禁止喝酒、抽烟吃生食③避免药和接触有害物质④浓茶、咖啡、碳酸饮料等不要喝</td>
+</tr>
+<tr>
+<td>5—8周（第二个月）</td>
+<td>孕5周：抽血检查HCG和孕酮翻倍情况，确认指标是否正常翻倍（不需要空腹）；孕6-8周做早孕B超，确认是否宫内孕，有无胎心、胎芽（需要憋尿不需空腹）</td>
+<td>叶酸、维生素C、维生素B6（VC减少牙龈出血、VB6抑制孕吐）</td>
+<td>富含维生素C的食物：芹菜、菠菜、青椒、黄瓜、番茄、卷心菜、西蓝花、猕猴桃、橙子、鲜枣、草莓等；富含维生素B6的食物：豌豆、红枣、核桃、红薯、鸡肉、鱼、动物肝脏、鸡蛋等</td>
+<td>恶心、犯困、口味改变、乳房胀痛、对气味敏感、尿频等</td>
+<td>①孕早期所需营养不多，饮食上选择清淡易消化的食物，少量多餐②保证充足的睡眠和愉快的心情，看看漂亮宝宝的图片③避免弯腰提重物等大幅度动作④胚胎怕热，不要睡电热毯，不要泡温泉，洗澡时间控制在10分钟内⑤孕早期禁止性生活，禁止剧烈运动，如有阴道出血并伴有腹痛要及时就医</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>孕周</th>
+<th>孕检</th>
+<th>营养的需要</th>
+<th>适合吃的食物</th>
+<th>身体的变化</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9-12周（第3个月）</td>
+<td>孕12周：建档；主要检查：血常规、尿常规、肝肾功能、传染病、尿常规、心电图、测血压、量身高体重、胎心率以及确定孕周推算具体预产期（需空腹）；建档需要准备好医保卡、身份证、早孕B超单、电子准生证；NT检查：检查胎儿颈后透明带厚度，筛查胎儿神经管缺陷（无需空腹）</td>
+<td>叶酸、维生素A（促进胎儿皮肤、肠胃道发育）、镁（促进胎儿肌肉、骨骼发育）</td>
+<td>富含镁的食物：绿叶菜、色拉油、坚果、大豆、南瓜、甜瓜、全麦食物等；富含维生素A的食物：鸡蛋、鱼类、海产品、菠菜胡萝卜、油菜等</td>
+<td>情绪起伏大、孕吐严重、嗜睡、尿频、乳房变大、容易出汗</td>
+<td>①确定建档的医院②妊娠反应会在第9周达到高峰，12周会逐渐减弱直至消失，孕吐可以吃一些苏打饼干、柠檬水、酸奶、橘子等，如严重到不能进食进水，不要硬撑及时去医院③孕期可以护肤和化妆，但要避开维A酸、视黄醇水杨酸、氢醌、乙醇、重金属等成分</td>
+</tr>
+<tr>
+<td>13-16周（第4个月）</td>
+<td>孕16周左右：唐氏筛查，抽血检查胎儿是否有染色体方面的异常，排除唐氏综合征，如果唐筛为高风险，需要进一步做无创DNA或羊水穿刺，（唐筛的准确率为百分之60左右，有一定的假阳性，也可以选择直接做无创DNA，他是检查3种染色体，准确率高达百分之95左右）</td>
+<td>锌（促进胎儿心脏、大脑等器官的发育，防止胎宝宝发育不良）</td>
+<td>富含锌的食物：牛肉、猪肉、鱼类、猪肝、蛋黄、口蘑、芝麻等</td>
+<td>腹部轻微隆起、肚子长毛、分泌物增多、乳晕颜色变深、便秘、鼻塞</td>
+<td>①进入孕中期，很多妈妈孕反逐渐消失，胃口变好，多吃蛋白质、维生素丰富的食物，像花胶、燕窝之类的一周吃个1-2次②孕期受激素影响容易出现便秘，多吃含有纤维素的蔬菜水果和粗粮，可以喝点酸奶和蜂蜜③换上宽松的孕妇装、哺乳内衣④经常和宝宝说说话，多夸夸胎宝宝，建立亲密关系</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>孕周</th>
+<th>孕检</th>
+<th>营养的需要</th>
+<th>适合吃的食物</th>
+<th>身体的变化</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17-20周（第5个月）</td>
+<td>无，提前约好22-24周做的四维检查</td>
+<td>钙、维生素D（促进宝宝骨骼、牙齿发育）</td>
+<td>富含钙的食物：奶制品、豆制品、鲫鱼、虾、海带、紫菜、羊肉、猪脑、鸡蛋、鸡肉等</td>
+<td>腹部明显隆起、牙龈出血、大部分准妈妈能感受到胎动了，像小鱼吐泡泡，又有点像肠胃蠕动的感觉</td>
+<td>①宝宝进入生长迅速期，定期记录体重②每天数胎动，时间固定在每天的8-9点，一般平均每小时有3-5次的胎动③可以开始胎教，胎宝宝喜欢中低频声音，准爸爸可以多和宝宝说说话④腹部的皮肤逐渐被撑开妈妈能感肚子可能会发痒，千万不要受到胎动抓，坚持每天涂抹妊娠油、抚了，纹霜（腹部、胸部、大腿、臀部都是容易长纹的部位）从下往上涂，不要打圈⑤注意睡觉姿势，尽量左侧卧睡，不习惯的妈妈可以准备一个孕妇枕⑥不要憋尿，便便不要蹲太久，可能会影响宝宝在子宫里的自由活动</td>
+</tr>
+<tr>
+<td>21-24周（第6个月）</td>
+<td>孕22-24周：四维检查，B超检查胎儿的发育情况以及是否畸形，可能胎宝宝会不太配合，检查前要吃饱，适当吃点甜食让胎宝宝动起来</td>
+<td>铁（防止贫血）</td>
+<td>富含铁的食物：动物肝脏、红肉、鸡蛋、菠菜、紫菜等</td>
+<td>尿频明显增加、体重增长变快、下肢水肿、腰酸背痛、假性宫缩</td>
+<td>①适量运动，饭后多散散步②一周吃2次深海鱼③控制体重和血糖，少吃高糖水果和甜食④宝宝的大脑细胞正在迅速分化，多吃核桃、芝麻花生之类的健脑食物⑤睡觉时可以把脚垫高，减轻浮肿⑥提前订好月嫂/月子中心</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>孕周</th>
+<th>孕检</th>
+<th>营养的需要</th>
+<th>适合吃的食物</th>
+<th>身体的变化</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25-28周（第7个月）</td>
+<td>孕24-28周：糖耐，抽血检查孕妈妈是否患有妊娠期糖尿病（空腹8小时以上）糖耐流程：早上8点前到，空腹抽血，拿到的葡萄糖兑300ml的水，并在5分钟内喝完，从喝的第一口糖水开始计时，1小时后抽第2次血，再过1小时抽第3次；孕28周：乙肝抗原检查（需要空腹）</td>
+<td>DHA、卵磷脂（有助于胎儿以及视网膜发育）</td>
+<td>富含DHA的食物：海带、木耳、坚果类如核桃松子、芝麻等、深海鱼类如鳕鱼、鲈鱼、黄花鱼等</td>
+<td>腹部变得更大、腹部感到变紧变硬出现妊娠纹、失眠、胸闷气短等</td>
+<td>①控制进食量，少吃多餐，不要吃太多容易导致胎宝宝过大不好顺产②睡前喝杯热牛奶听听舒缓的音乐③乳房分泌物变多不要用沐浴露等去搓洗④胎儿的听力和视力重点发育，注意休息，养成午休的习惯⑤给宝宝取名字</td>
+</tr>
+<tr>
+<td>29-32周（第8个月）</td>
+<td>孕30周：小排畸检查，B超进一步检查胎儿发育情况，是否存在侧脑室增宽、脑积水，是对大排畸的一次补充，同时检查胎儿是否宫内受限以及脐带异常；其他检查项目：血常规、尿常规、肝肾功能复查；孕32周：这周开始每2周就要产检一次。每次都需要做尿常规以及测宫高测腹围来评估妈妈和宝宝的基本情况</td>
+<td>碳水化合物（为身体提供热量需求）</td>
+<td>富含碳水化合物的食物：大米、燕麦、玉米、红薯、胡萝卜、红薯等</td>
+<td>腰痛加重、腿抽筋、烧心、身体疲乏、气喘、尿频起夜多</td>
+<td>①开始准备待产包，提前清洗好宝宝的衣服和床上用品，婴儿床提前散味②安排一套美美的孕妇照，纪念和宝宝的合体时光③每天2杯牛奶摄入充足的钙不爱喝牛奶的妈妈可以多吃豆制品、海带、紫菜④每天按时数胎动，早中晚各一次每次1小时⑤避免长时间站立、久坐，晚上睡觉前多按摩按摩腿部，睡觉时可把腿脚垫高点睡⑥留意胎动，如果发现胎动减少可吃点东西让宝宝活跃起来，如果胎宝宝还是很安静的话要及时去医院</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>孕周</th>
+<th>孕检</th>
+<th>营养的需要</th>
+<th>适合吃的食物</th>
+<th>身体的变化</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>33-36周（第9个月）</td>
+<td>孕34周：胎心监护，这周开始每次产检都需要做胎心监护；孕36周：胎心监护、B族链球菌，这周开始每1周就要产检一次</td>
+<td>膳食纤维（促进肠道蠕动 减少便秘）</td>
+<td>富含膳食纤维的食物：芹菜、油菜、豌豆、豆芽、菜花、燕麦、玉米、苹果、梨</td>
+<td>胎儿下降到骨盆，胎动减弱，耻骨痛、常常感到肚子有些发硬，假性宫缩变多，尿频更加明显、分泌乳汁、产前焦虑</td>
+<td>①如果宫缩变得有规律，持续时间变长，间隔时间变短，要及时去医院以防早产②避免长时间坐着，适当运动学习拉玛泽呼吸法，帮助顺产更顺利③上下楼梯和洗澡时注意安全防止滑倒，洗澡时间不可过长，防止缺氧晕倒④如果流出少量初乳，不要挤压乳房避免刺激乳头，以免引起宫缩和早产；检查待产包，准备好双方身份证、户口本、结婚证妈妈的医保卡、准生证、孕检手册、银行卡等</td>
+</tr>
+<tr>
+<td>37-40周（第10个月）</td>
+<td>孕37周：胎心监护以及确认胎位，预估胎儿体重判断生产方式；孕38周：胎心监护以及看胎位确定生产方式；孕39-40周：胎心监护，随时待产</td>
+<td>维生素B1（避免生产过程延长分娩困难）</td>
+<td>富含维生素B1的食物：猪肉、鸡肝、花生、大豆、黑米、西红柿、葡萄、橘子</td>
+<td>腹部沉重、下肢发麻、频繁尿频、水肿严重、宫缩、破水</td>
+<td>①如果过了预产期，可以多做助产运动，每天散步半小时以上②放松心情，可以学习一些月子知识③准备好助产食物：小面包、小蛋糕、饼干等④进入待产状态，注意临产征兆：见红：如果是淡淡的血丝，可先在家观察，如果出血量多就尽快去医院；破水：立即停止走动平躺休息并抬高臀部，通知家人赶紧送去医院；规律宫缩：记录宫缩时间和间隔，当宫缩规律达到"511"就要及时去医院（间隔5分钟就出现一次，每次1分钟，持续1小时并伴随阵痛）</td>
+</tr>
+</tbody>
+</table></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev disabled"><span class="cn-label">— 已是第一章 —</span></a><a class="next" href="孕期食谱.html"><span class="cn-label">下一章 →</span><span class="cn-title">孕期食谱</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
