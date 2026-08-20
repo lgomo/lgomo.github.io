@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>剖腹产 42 天月子餐 · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 12 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" class="active" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">🌙</span>产后月子</div>
+        <h2 class="doc-title">剖腹产 42 天月子餐</h2>
+      </header>
+      <div class="doc-body"><h1>剖腹产42天月子餐</h1>
+<h2>第一周：排气排便排恶露，愈合伤口</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>早餐</th>
+<th>午餐</th>
+<th>加餐</th>
+<th>晚餐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一天</td>
+<td>白米汤</td>
+<td>南瓜小米粥</td>
+<td>白萝卜汤陈皮水</td>
+<td>米糊</td>
+</tr>
+<tr>
+<td>第二天</td>
+<td>薏米米糊菜包子</td>
+<td>鸡蛋蔬菜面</td>
+<td>枸杞莲子羹</td>
+<td>瘦肉青菜稀饭</td>
+</tr>
+<tr>
+<td>第三天</td>
+<td>瘦肉粥</td>
+<td>青菜瘦肉面条</td>
+<td>黑芝麻糊</td>
+<td>莲藕红萝卜排骨汤清炒丝瓜瓜玉米软饭</td>
+</tr>
+<tr>
+<td>第四天</td>
+<td>瘦肉百合粥</td>
+<td>排骨鸡蛋西红柿汤荷兰豆炒黑木耳米饭</td>
+<td>银耳木瓜糖水</td>
+<td>清蒸肉丸西蓝花炒红萝卜粉丝瘦肉汤</td>
+</tr>
+<tr>
+<td>第五天</td>
+<td>瘦肉蔬菜面条</td>
+<td>排骨萝卜汤清炒菠菜馒头</td>
+<td>山药粥</td>
+<td>冬瓜排骨汤瘦肉炒青瓜面条</td>
+</tr>
+<tr>
+<td>第六天</td>
+<td>鸡蛋疙瘩面</td>
+<td>猴头菇瘦肉山楂汤瘦肉炒土豆丝米饭</td>
+<td>南瓜小米粥</td>
+<td>清蒸鱼玉米筒骨汤清炒山药黑木耳</td>
+</tr>
+<tr>
+<td>第七天</td>
+<td>小米粥</td>
+<td>清蒸肉末豆腐鱼汤板栗米饭</td>
+<td>芝麻核桃牛奶</td>
+<td>红豆海带排骨汤清炒生菜红萝卜肉丝</td>
+</tr>
+</tbody>
+</table>
+<p>剖腹产6小时内禁止饮食，6小时后可以吃流质食物，喝水、喝萝卜汤等<br>
+第2、3天：可以吃一些半流食，比如张粥、煮得比较烂的面条等。<br>
+产后一周注意不要喝容易胀气的东西，牛奶或豆浆不能喝。</p>
+<h2>第二周：收缩子宫，内脏复位</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>早餐</th>
+<th>午餐</th>
+<th>加餐</th>
+<th>晚餐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一天</td>
+<td>红豆黑米粥</td>
+<td>排骨玉米汤肉片西蓝花豌豆饭</td>
+<td>松子玉米羹</td>
+<td>红烧肉紫菜蛋花汤炒青菜芝麻南瓜饭</td>
+</tr>
+<tr>
+<td>第二天</td>
+<td>猪腰粥</td>
+<td>番茄鲜虾豆腐羹鲍鱼焖排骨馒头</td>
+<td>桂圆红枣糖水</td>
+<td>排骨玉米茶树菇清炒油菜黑米饭</td>
+</tr>
+<tr>
+<td>第三天</td>
+<td>馄饨汤面</td>
+<td>清蒸排骨清炒杂菜米饭</td>
+<td>红枣银耳马蹄糖水</td>
+<td>羊排山药汤肉片荷兰豆黄金米饭</td>
+</tr>
+<tr>
+<td>第四天</td>
+<td>香菇胡萝卜瘦肉粥</td>
+<td>牛腩炖土豆清炒油麦菜杂粮饭</td>
+<td>百合汤圆</td>
+<td>清蒸鲤鱼茄子豆角筒骨玉米莲藕汤花卷</td>
+</tr>
+<tr>
+<td>第五天</td>
+<td>猪腰瘦肉粥</td>
+<td>排骨冬瓜汤粉丝炒包菜炒面</td>
+<td>肉酱意面</td>
+<td>清蒸鱼炒丝瓜瓜蔬菜面</td>
+</tr>
+<tr>
+<td>第六天</td>
+<td>清汤面条</td>
+<td>猪肚炖板栗清炒时蔬花卷</td>
+<td>地瓜粥</td>
+<td>香菇炒油菜排骨玉米汤鲜肉包</td>
+</tr>
+<tr>
+<td>第七天</td>
+<td>白粥鸡蛋</td>
+<td>牛肉炒菜椒排骨山药汤黑米饭</td>
+<td>紫薯小米粥</td>
+<td>丝瓜汤花生猪尾巴米饭</td>
+</tr>
+</tbody>
+</table>
+<p>不要急着去吃催奶的食物，容易引起乳腺炎；<br>
+剖腹产伤口还没好之前，不要吃发物</p>
+<h2>第三周：催乳、补血、子宫恢复</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>早餐</th>
+<th>午餐</th>
+<th>加餐</th>
+<th>晚餐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一天</td>
+<td>肉末拌面</td>
+<td>椰子鸡汤清蒸小嘴鱼青菜面片</td>
+<td>核桃红枣羹蒸山药</td>
+<td>菠菜炒鸡蛋清蒸石斑鱼米饭</td>
+</tr>
+<tr>
+<td>第二天</td>
+<td>红豆糖水小笼包</td>
+<td>通草鱼汤三杯鸡馒头</td>
+<td>蒸燕窝</td>
+<td>乌鸡玉米汤豆腐鱼煲米饭</td>
+</tr>
+<tr>
+<td>第三天</td>
+<td>皮蛋瘦肉粥</td>
+<td>鱼香茄子冬瓜排骨汤杂粮饭</td>
+<td>鸡蛋羹</td>
+<td>猪肚煲鸡汤黄瓜炒肉片玉米豌豆饭</td>
+</tr>
+<tr>
+<td>第四天</td>
+<td>白灼秋葵南瓜小米粥</td>
+<td>山药安神汤南瓜炒荷兰豆花卷</td>
+<td>虾仁馄饨</td>
+<td>虫草炖老鸭汤清蒸鲤鱼三鲜面</td>
+</tr>
+<tr>
+<td>第五天</td>
+<td>西葫芦鸡蛋饼蔬菜粥</td>
+<td>香煎黄花鱼焖豆腐红米饭</td>
+<td>芝麻黑豆浆</td>
+<td>红枣花生煲鸡脚瓦块鱼馒头</td>
+</tr>
+<tr>
+<td>第六天</td>
+<td>山药粥寿司</td>
+<td>花生焖猪尾巴清炒通心菜米饭</td>
+<td>拌鸡蛋意面</td>
+<td>何首乌黑豆乌鸡汤木须肉米饭</td>
+</tr>
+<tr>
+<td>第七天</td>
+<td>香菇鸡肉包南瓜红枣粥</td>
+<td>红烧鱼块清炒油麦菜紫米饭</td>
+<td>紫薯萝卜红糖水</td>
+<td>排骨花生汤瘦肉炒蒜蓉葱油饼</td>
+</tr>
+</tbody>
+</table>
+<p>两餐之间实在饿了可以加点水果零食，不要过量；<br>
+水果牛奶尽量温一会儿再吃</p>
+<h2>第四周：补元气</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>早餐</th>
+<th>午餐</th>
+<th>加餐</th>
+<th>晚餐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一天</td>
+<td>鲍鱼排骨粥蒸饺</td>
+<td>海带白萝卜筒骨汤砂锅焖鱼香菇油菜紫米饭</td>
+<td>醪糟鸡蛋双皮奶</td>
+<td>山珍老鸭汤清蒸鲅鱼红糖馒头</td>
+</tr>
+<tr>
+<td>第二天</td>
+<td>牛肉面</td>
+<td>鸡肉煲豆干炒扁豆米饭</td>
+<td>玉米鸡蛋羹</td>
+<td>羊肉胡萝卜煲茭白炒肉片米饭</td>
+</tr>
+<tr>
+<td>第三天</td>
+<td>捞面凉拌藕片</td>
+<td>雪梨苹果乌鸡汤糖醋里脊清炒蟹味菇馒头</td>
+<td>红薯木瓜糖水</td>
+<td>黄豆牛肉汤腊肠橄榄菜红薯焖饭</td>
+</tr>
+<tr>
+<td>第四天</td>
+<td>地瓜红枣粥牛肉煎饺</td>
+<td>白斩鸡马蹄排骨茭白香油菜拌面</td>
+<td>芝麻糊</td>
+<td>红烧猪脚清蒸秋葵紫菜蛋花汤</td>
+</tr>
+<tr>
+<td>第五天</td>
+<td>红枣糯米糕小米粥</td>
+<td>清蒸鲅鱼蒜蓉粉丝丝瓜杂粮饭</td>
+<td>紫薯热牛奶</td>
+<td>海参炒油菜肉末豆腐墨鱼老鸭汤</td>
+</tr>
+<tr>
+<td>第六天</td>
+<td>煮鸡蛋银耳莲子粥</td>
+<td>蘑菇炒肉丝莲藕猪骨汤南瓜红薯饭</td>
+<td>牛奶炖花胶</td>
+<td>香菇鸡肉什锦粥清蒸鲅鱼南瓜红薯饭</td>
+</tr>
+<tr>
+<td>第七天</td>
+<td>山药粥煎蛋</td>
+<td>冬瓜虾米汤香蒜蒸鹌鹑蛋红豆饭</td>
+<td>枸杞核桃燕麦粥</td>
+<td>木须肉番茄鸡蛋面</td>
+</tr>
+</tbody>
+</table>
+<p>壮腰补肾、补充维生素和膳食纤维<br>
+主食可以多选择粗粮，晚餐不要吃太多主食</p>
+<h2>第五周：通乳、补气血</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>早餐</th>
+<th>午餐</th>
+<th>加餐</th>
+<th>晚餐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一天</td>
+<td>全麦面包菠菜瘦肉粥</td>
+<td>豆腐鲫鱼汤白灼芥蓝豌豆火腿玉米粒</td>
+<td>苹果奶昔</td>
+<td>秋葵扇贝丁清炒豆芽米饭</td>
+</tr>
+<tr>
+<td>第二天</td>
+<td>西红柿鸡蛋面</td>
+<td>三鲜汤香菇炒青菜板栗烧鸡</td>
+<td>木瓜雪梨汤</td>
+<td>鲫鱼肉末豆腐米饭</td>
+</tr>
+<tr>
+<td>第三天</td>
+<td>三鲜包小米粥</td>
+<td>蘑菇鸡汤虾仁西蓝花莴笋炒肉丝</td>
+<td>红豆薏米汤</td>
+<td>党参乳鸽汤番茄炒蛋杂粮饭</td>
+</tr>
+<tr>
+<td>第四天</td>
+<td>蔬菜鸡蛋面清炒土豆丝</td>
+<td>西红柿蛋花汤清蒸鲅鱼清炒藕片</td>
+<td>木瓜炖牛奶</td>
+<td>肉片炒山药糖醋鱼红薯米饭</td>
+</tr>
+<tr>
+<td>第五天</td>
+<td>黑米糕小馄饨</td>
+<td>排骨汤麻油猪肝烩菜糙米饭</td>
+<td>红糖小米粥</td>
+<td>裙带菜虾滑白菜豆腐玉米馒头</td>
+</tr>
+<tr>
+<td>第六天</td>
+<td>奶黄包八宝杂粮粥</td>
+<td>青菜豆腐蛋花汤土豆炖牛腩虾仁玉米</td>
+<td>草莓牛奶香蕉</td>
+<td>菠菜黑鱼汤红烧排骨杂粮饭</td>
+</tr>
+<tr>
+<td>第七天</td>
+<td>胡萝卜虾仁蒸饺香菇瘦肉粥</td>
+<td>排骨汤山药炒木耳蒜苔炒肉紫米饭</td>
+<td>香菇青菜粥</td>
+<td>荷兰豆炒腊肉清炒花菜葱油饼</td>
+</tr>
+</tbody>
+</table>
+<p>哺乳期的饭量比平时多30%差不多，不饿的话不要刻意加餐</p>
+<h2>第六周：恢复元气</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>早餐</th>
+<th>午餐</th>
+<th>加餐</th>
+<th>晚餐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一天</td>
+<td>奶黄包花生红豆粥</td>
+<td>小鸡炖蘑菇清炒菜心紫米饭</td>
+<td>酒酿丸子蒸山药</td>
+<td>排骨莲藕清炒土豆丝糙米饭</td>
+</tr>
+<tr>
+<td>第二天</td>
+<td>蘑菇鸡汤面煎蛋</td>
+<td>木须肉青椒肉丝糙米饭</td>
+<td>香蕉奶昔</td>
+<td>山药排骨汤清炒时蔬蒸蛋羹</td>
+</tr>
+<tr>
+<td>第三天</td>
+<td>玉米香菇瘦肉虾仁粥</td>
+<td>冬瓜肉丸汤清炒西蓝花葱油饼</td>
+<td>红糖小米粥</td>
+<td>丝瓜鸡蛋汤牛肉炒西瓜地瓜</td>
+</tr>
+<tr>
+<td>第四天</td>
+<td>叉烧包八宝粥</td>
+<td>枸杞乌鸡汤虾仁蒸蛋花卷</td>
+<td>木瓜银耳汤</td>
+<td>清炒娃娃菜蒸鱼糙米饭</td>
+</tr>
+<tr>
+<td>第五天</td>
+<td>菠菜面鸡蛋饼</td>
+<td>胡萝卜炒肉水煮虾紫米饭</td>
+<td>三鲜馄饨</td>
+<td>板栗烧鸡西百合馒头</td>
+</tr>
+<tr>
+<td>第六天</td>
+<td>鲜肉馄饨蒸娃娃菜</td>
+<td>丝瓜鸡蛋清蒸多宝鱼米饭</td>
+<td>银耳红枣汤</td>
+<td>清炒娃娃菜莲子猪肚鸡</td>
+</tr>
+<tr>
+<td>第七天</td>
+<td>蔬菜鸡丝面三明治</td>
+<td>黄豆猪蹄汤芹菜炒豆干玉米紫薯</td>
+<td>蒸南瓜紫薯红豆汤</td>
+<td>红烧鱼爆炒肉片炒青菜</td>
+</tr>
+</tbody>
+</table>
+<p>可以再适量进补，少量多次进行，也要观察宝宝反应<br>
+补品可以替换下午的加餐</p>
+<h1>疤痕忌口食物</h1>
+<h2>一级发物(极强发性)</h2>
+<ol>
+<li>羊肉、鹿肉、狗肉</li>
+<li>海鲜、海虾、带鱼</li>
+<li>辣椒、大蒜、韭菜</li>
+<li>芥末、花椒、胡椒、肉桂、茴香</li>
+<li>高度白酒</li>
+</ol>
+<h2>二级发物(较强发性)</h2>
+<ol>
+<li>猪肝、鸡肝、鸭肝、猪头肉、公鸡肉</li>
+<li>各鱼类、虾皮、海参、海虹</li>
+<li>荔枝</li>
+<li>姜、葱、香菜</li>
+<li>花粉</li>
+</ol>
+<h2>三级发物(一般发性)</h2>
+<ol>
+<li>油炸、糯米、爆米花</li>
+<li>牛肉及内脏</li>
+<li>螃蟹</li>
+<li>柑桔、番石榴、芒果、桂圆、核桃</li>
+<li>香椿、竹笋、香菇、芥菜、洋葱</li>
+<li>陈皮、咖啡、腐乳</li>
+</ol></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev" href="42天月子餐打印照着吃.html"><span class="cn-label">← 上一章</span><span class="cn-title">42 天月子餐（打印照着吃）</span></a><a class="next" href="月嫂整理的坐月子经验.html"><span class="cn-label">下一章 →</span><span class="cn-title">月嫂整理的坐月子经验</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
