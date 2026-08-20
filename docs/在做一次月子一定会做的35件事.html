@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>再做一次月子一定会做的 35 件事 · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 14 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" class="active" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">🌙</span>产后月子</div>
+        <h2 class="doc-title">再做一次月子一定会做的 35 件事</h2>
+      </header>
+      <div class="doc-body"><h1>产后月子病怎么办？</h1>
+<h2>28. 产后便秘</h2>
+<p><strong>原因：</strong> 产后肠道蠕动减弱，腹部肌肉松弛无法对肠道挤压</p>
+<p><strong>应对方法：</strong></p>
+<ol>
+<li>每天喝2000ml水，适当吃些水果，帮助肠胃蠕动</li>
+<li>用开塞露，方法见效很快，肠道慢慢恢复后面就不用了</li>
+<li>适当做产褥操，活动一下，每天顺时针按摩腹部</li>
+</ol>
+<h2>29. 产后脱发</h2>
+<p><strong>原因：</strong> 和产前产后的激素急剧变化，营养的缺失、熬夜有关</p>
+<p><strong>应对方法：</strong></p>
+<ol>
+<li>一般来说，产后6个月后会慢慢恢复，脱发减少</li>
+<li>饮食上多吃黑芝麻、芝麻、黑豆，紫菜等养发的食物</li>
+<li>熬夜真的会导致脱发，注意休息，保持充足的睡眠</li>
+</ol>
+<h1>传统 坐月子</h1>
+<ul>
+<li>一个月不洗头不洗澡超难受</li>
+<li>不敢开空调，不起床一直躺着</li>
+<li>带娃事事亲力亲为，腰酸背痛</li>
+<li>鸡汤猪蹄汤喝不停，产后比怀孕还胖</li>
+</ul>
+<h1>科学 坐月子</h1>
+<ul>
+<li>洗头洗澡吹空调，干净舒爽精神好</li>
+<li>恢复快，气色更好，远离月子病</li>
+<li>合理饮食，适当运动，修复身材</li>
+<li>爱孩子，也爱自己</li>
+</ul>
+<h1>如果再坐一次月子</h1>
+<h1>我一定会做的35件事</h1>
+<h2>妈妈护理篇</h2>
+<ol>
+<li>顺产坐月子坐42天，剖腹产要坐56天</li>
+<li>排恶露会持续4-6周，买一个私处清洗器，每次上完厕都清洗一次，有利于恢复</li>
+<li>顺产5天，剖腹产15天后可以洗澡洗头，时间控制在10分钟内，躺着洗头，不要弯腰，容易腰痛</li>
+<li>不要过度玩手机，视力会下降很多</li>
+<li>在家也要穿袜子或者穿包头包后跟的鞋子，避免着凉，寒气入侵，脚后跟容易落下月子病会痛</li>
+<li>前2周都清淡饮食，帮助排恶露，太油腻还会堵奶</li>
+<li>月子里的产褥汗会很多，勤换衣物，避免着凉</li>
+<li>产后容易便秘，多喝水，难受的也可以用开塞露</li>
+<li>产后3天可以开始做产褥操或凯格尔运动，但是不要腰用力的动作，不要做卷腹</li>
+</ol>
+<h1>变瘦变美的月子水</h1>
+<h2>25. 产后第2周：黄芪枸杞红枣水</h2>
+<p><strong>作用：</strong> 补气血、驱寒暖宫</p>
+<p><strong>做法：</strong> 放入老姜、黄芪、红枣煮20分钟后，再放入枸杞煮10分钟。或者直接放养生壶煮半小时。</p>
+<h2>26. 产后第3周：桂圆红糖水</h2>
+<p><strong>作用：</strong> 补气血、排恶露、改善气色</p>
+<p><strong>做法：</strong> 提前泡桂圆干，桂圆红枣放入水中煮开，再加入红糖喝枸杞，煮20分钟即可。</p>
+<h2>27. 产后第4-5周：五红汤</h2>
+<p><strong>作用：</strong> 补气血、催乳下奶、养脾胃</p>
+<p><strong>做法：</strong> 把所有的食材倒进养生壶里，煮30分钟以上，最后加入红糖，再煮5分钟即可。</p>
+<h1>月子饮食篇</h1>
+<ol start="19">
+<li><strong>帮助排恶露：</strong> 产后一周内可以适当喝点红糖水帮助恶露排出，但不要连续喝10天</li>
+<li><strong>补气血：</strong> 排完恶露后可以喝五红汤、黄芪红枣水、桂圆山楂红糖水等补气血，帮助恢复气色</li>
+<li><strong>不要吃过硬的食物，</strong> 产后的容易牙齿松动的情况，而且吃太硬的食物也不好消化，容易加重便秘</li>
+<li><strong>多吃高钙食物，</strong> 如牛奶、鸡蛋、豆制品、牛肉、鱼虾</li>
+<li><strong>远离葱、花椒、蒜、姜等热性调味料，</strong> 容易母乳也变得热性，宝宝容易上火</li>
+</ol>
+<h1>变瘦变美的月子水</h1>
+<h2>24. 产后第3天：陈皮炒米水</h2>
+<p><strong>作用：</strong> 有助排气、消除水肿</p>
+<p><strong>做法：</strong> 大米一碗晾干后，放入锅中火炒至微黄，再加入陈皮翻炒变成金黄色，晾凉后放密封罐保存，每次加2勺泡水喝</p>
+<h1>产后月子病怎么办？</h1>
+<h2>30. 腰酸背痛</h2>
+<p><strong>原因：</strong> 分娩过程中用力过度全身痉挛，或产后腰部活动影响</p>
+<p><strong>应对方法：</strong></p>
+<ol>
+<li>注意保暖，每天可以用毛巾、热水袋热敷腰部20分钟</li>
+<li>月子期间不要提重物、少抱宝宝，不要做换纸尿裤、弯腰洗头、帮宝宝洗澡等会弯腰的动作</li>
+<li>做燕子飞的动作，锻炼腰部肌肉</li>
+</ol>
+<h2>31. 漏尿</h2>
+<p><strong>原因：</strong> 孕期胎儿压迫和分娩影响盆底肌，产后盆底肌松弛</p>
+<p><strong>应对方法：</strong></p>
+<ol>
+<li>产后一周开始做凯格尔运动，能帮助促进阴dao收缩，改善漏尿的情况，还能预防子宫下垂</li>
+<li>凯格尔运动动作：收缩提肛10秒，放松10秒，再休息10秒。一天做20次，每天做2次</li>
+</ol>
+<h1>坐月子真的不可以</h1>
+<ol>
+<li>不要做家务干重活，不要提重物，少弯腰<br>
+   真的会腰痛，宝宝也是重物，月子里少点抱吧，先恢复身体</li>
+<li>不要用碰冷水，洗洗手都不要，关节真的会痛</li>
+<li>不要生气，生气容易回奶，生气没好处，放过自己吧</li>
+<li>不要久蹲，容易子宫下垂，便秘拉不出来可以用开塞露</li>
+<li>不要直吹风，容易头痛啊，身体虚弱寒气容易进入体内</li>
+<li>前2周真的不要大补喝荤汤，堵奶真的要命</li>
+<li>洗澡不要盆浴，下面容易感染</li>
+</ol>
+<h1>坐月子真的可以</h1>
+<ol>
+<li>可以洗头洗澡，控制在十分钟内，立即擦干和吹干头发，用生姜水洗头可以驱寒</li>
+<li>可以吹空调，空调加块挡风板，不要直吹就行</li>
+<li>可以刷牙，用温水和软毛的牙刷、日常的牙膏就行</li>
+<li>可以吃水果，不要吃刚冷藏拿出来还冰凉的就好</li>
+<li>可以通风，如果捂在房间，没有新鲜空气反而容易生病。每天通风2次，妈妈去其他房间不要直吹就行</li>
+<li>可以下床，适量的活动更好恢复，避免血栓</li>
+</ol>
+<h1>产后修复时间表</h1>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顺产（1-6周）<br>剖腹产（3-6周）</td>
+<td><strong>32. 产褥操：腹式呼吸、臀桥</strong></td>
+</tr>
+<tr>
+<td>产后7-25周</td>
+<td><strong>33. 盆底肌修复：凯格尔运动、臀桥</strong></td>
+</tr>
+<tr>
+<td>产后10-25周</td>
+<td><strong>34. 腹直肌修复：下肢屈伸、腹式呼吸</strong></td>
+</tr>
+<tr>
+<td>产后25周起</td>
+<td><strong>35. 减脂塑形：全身运动、仰卧脚踏车</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>32. 产褥操：腹式呼吸、臀桥</h2>
+<p><strong>腹式呼吸：</strong> 平躺在床上慢慢吸气的同时，腹部鼓起5秒；嘴巴慢慢吐气，同时腹部收紧维持5秒</p>
+<h2>33. 盆底肌修复：凯格尔运动、臀桥</h2>
+<p><strong>臀桥：</strong> 身体平躺，双膝弯曲，收缩肛门并提起臀部，保持5秒。放松再重复，每天坚持3组。</p>
+<h2>34. 腹直肌修复：下肢屈伸、腹式呼吸</h2>
+<p><strong>下肢屈伸：</strong> 平躺双手放平，一侧下肢向腹部屈曲，双腿交替换着进行，每天2次，每次15组。</p>
+<h2>35. 减脂塑形：全身运动、仰卧脚踏车</h2>
+<p><strong>全身运动：</strong> 呈跪姿，双手支撑床左右腿交替向上举高，5次一组，每天坚持3组。</p></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev" href="月嫂整理的坐月子经验.html"><span class="cn-label">← 上一章</span><span class="cn-title">月嫂整理的坐月子经验</span></a><a class="next" href="XLSX_MEAL.html"><span class="cn-label">下一章 →</span><span class="cn-title">月子餐 42 天食谱（详）</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
