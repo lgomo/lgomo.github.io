@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>月嫂整理的坐月子经验 · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 13 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" class="active" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">🌙</span>产后月子</div>
+        <h2 class="doc-title">月嫂整理的坐月子经验</h2>
+      </header>
+      <div class="doc-body"><h1>金牌月嫂整理</h1>
+<h2>价值5万剖腹产+顺产坐月子须知</h2>
+<h1>剖腹产妈妈的注意事项</h1>
+<h2>1、睡觉</h2>
+<p>1) 剖宫产后6小时内：术后回到病房，头偏向一侧(预防呕吐物误吸)、去枕平卧6个小时(预防头痛)；</p>
+<p>2) 剖宫产6小时后：垫上枕头，鼓励翻身，采取半卧位的姿势势，可使子宫腔内积血排出(身体和床20-30度为宜)；</p>
+<p>3) 术后24小时内要卧床休息，每隔三四个小时翻身。</p>
+<h2>2、饮食</h2>
+<p>1) 术后6小时内禁食，少吃易产气食物；术后6小时内禁饮，实在口渴，可以用棉签蘸水涂抹嘴唇；术后6小时喝温开水，刺激肠道蠕动</p>
+<p>2) 排气后可进食。刚开始进食不要吃巧克力、果汁、牛奶等，选择流质食物</p>
+<p>3) 大量排气后，可由流质改为半流质，如蛋汤、粥、面条等；</p>
+<p>4) 然后向固体食物渐进，不宜过饱</p>
+<p>5) 食用萝卜汤，增强肠蠕动，促进排气；</p>
+<p>6) 少吃易产气食物，如糖类、豆类、淀粉类；</p>
+<p>7) 禁止过早食鸡汤、鲫鱼汤等催乳食物。</p>
+<h2>3、排尿</h2>
+<p>1) 产后注意排尿。导尿管拔掉后，有尿意要自行解小便，防止尿路感染；</p>
+<p>2) 尿管拔出后增加引水量。多饮水多排尿，可冲洗尿道，防止感染。</p>
+<h2>4、哺乳</h2>
+<p>1) 侧躺着哺乳，可促进子宫收缩，减少子宫出血</p>
+<p>2) 尽早开奶。让宝宝频繁吸吮，加快乳汁产出</p>
+<p>3) 剖宫产妈妈服管完全畅通需要六七天。喝大量催乳汤会出现乳房胀痛，引发乳腺炎，轻度发炎不可停止哺乳。乳房肿胀疼痛，要勤给宝宝哺乳；化脓时，用吸奶器把乳汁排尽；感染严重，停止哺乳。</p>
+<h2>5、运动</h2>
+<p>1) 轻轻按摩腹部，促进肠蠕动恢复，利于子宫、阴道内残血</p>
+<p>2) 新妈妈要多翻身。多翻身，尽快排气</p>
+<p>3) 术后尽早活动。24小时后练习翻身、坐起、下床慢慢互动；</p>
+<p>4) 麻醉消失，上下肢肌肉可做收放动作，拔出尿管后尽早下床，先床上坐一会，床边一会，下床站一会。然后溜达；地上站立一会或轻走几步，每天坚持三四次，实在不能站立，也要床上坐一会；</p>
+<p>5) 下床活动前可用束腹带(医用)绑住腹部。</p>
+<h2>6、伤口护理</h2>
+<p>1) 24小时内关注阴道出血量，定时查看刀口及恶露。应该与月经量接近或略多，流血过多或无恶露排出属于不正常现象、超过月经量，及时通知医生</p>
+<p>2) 少用止疼药，会影响肠蠕动功能的恢复，不利于哺乳</p>
+<p>3) 伤口护理措施：多吃蔬菜水果、鸡蛋、瘦肉等；避免阳光直射；不要用手抓；涂抹肤轻松、去炎松、地塞米公等用于止痒，但是哺乳期谨慎用药</p>
+<p>4) 每天新鲜护、温热的蔬菜汁，有利于妈妈伤口愈合</p>
+<h2>月子护理</h2>
+<p>1) 坐月子注意眼睛保养。月子哭泣眼睛提早老化；看15分钟休息10分钟</p>
+<p>2) 月子里不碰冷水，不开冰箱</p>
+<p>3) 注意腹部保暖，可用护腰</p>
+<p>4) 穿带脚后跟的软底拖鞋、再加薄棉袜</p>
+<p>5) 有效去除妊娠纹。多吃牛奶制员、维生素c的蔬果；洗澡时，以打圆方式按摩；每天保证8小时睡眠，适当体育锻炼；剖宫产需要术后7天内用腹带包裹腹部，拆线后不宜长期使用腹带带；新妈妈内脏下垂最好绑上腹带，一旦复原就要松开腰带。</p>
+<h1>顺产妈妈的注意事项</h1>
+<h2>1、睡觉</h2>
+<p>1) 产后不宜马上熟睡，采取半坐卧位闭目养神，使气血下行有利恶露排出，用手掌从上腹部向脐部按揉，脐部停留旋转按揉片刻，再揉揉小腹。闭目数小时后可美美睡一觉</p>
+<p>2) 顺产后少说话，多休息，此时说话最伤神、伤气</p>
+<p>3) 多种睡姿交替有利于产后康复，避免长期仰卧位，仰卧则卧交替。身体无异常，产后第二天开始侧卧，每天一两次，每次15-20分钟</p>
+<h2>2、哺乳</h2>
+<p>1) 第一次哺乳先洗手，温开水擦洗干净乳房</p>
+<p>2) 产后1小时，哺乳的黄金时间，第一次哺乳坚持早接触、早吸吮的原则，促进乳汁分泌</p>
+<p>3) 与宝宝早接触，母婴皮肤接触在分娩后30分钟内开始，接触时间不少于30分钟</p>
+<h2>3、饮食</h2>
+<p>1) 食用棉软、易消化食物；第一餐以半流质食物：藕粉、蒸鸡蛋、蛋花汤等；第二餐恢复正常：小米粥、蒸或煮鸡蛋、煮烂的肉菜</p>
+<p>2) 产后及时排便，产后一两天恢复排便功能，2日内没排便，多喝水、吃稀饭、面条、香蕉、苹果、芹菜、南瓜、油桃等(苹果粥)</p>
+<h2>4、排尿</h2>
+<p>尽早排尿。顺产4小时即可排尿，排不出可把水龙头打开诱导尿意；温水袋热敷小腹</p>
+<h2>5、卫生清洁</h2>
+<p>1) 保持身体清洁。产后第一天，不宜洗澡，可用温水擦浴。保持会阴清洁，勤换卫生巾。出汗多准备几套睡衣，湿了马上换，避免着凉。(会阴伤口或腹部刀口，需等伤口愈合再淋浴，可先做擦浴)</p>
+<p>2) 出产房避免受寒，及时掉湿衣服，干毛巾擦干头发</p>
+<p>3) 保持会阴清洁。不要担心侧切伤口恢复不好，每日冲洗会阴部2次，保持干净；大小便后用温水冲洗外阴。(产后第一周内，内衣裤每天更换，小便后卫生巾更换一次；不要用坐盆，脏水和细菌会进入阴道，造成感染。)</p>
+<p>4) 减少会阴疼痛。不要长时间站着或坐着；每4个小时更换卫生巾;小便后用温水冲活动，擦干，不要用卫生纸；大便后从前往后擦拭;</p>
+<h2>6、运动</h2>
+<p>1) 产后尽快开始骨盆底肌肉练习，促进会阴部血液循环帮助恢复</p>
+<p>2) 顺产妈妈产后6-8小时可第一次下床，5-10分钟。会阴撕裂、侧切坚持68小时第一次下床活动或排尿，注意行走缓慢</p>
+<h2>7、顺产侧切伤口护理妙招</h2>
+<p>1) 产后最初几天，恶露量较多，经常更换卫生巾，拆线前，每天用1:2000新洁尔等消毒液冲洗会阴2次</p>
+<p>2) 大小便后用温水冲洗外阴，保持干燥</p>
+<p>3) 伤口痊愈不佳时要坚持清洗外阴，每天一两次持续两三周，清洗外阴的药水遵医嘱</p>
+<p>4) 伤口在左侧，应当右侧睡；伤口在右侧应当左侧睡</p>
+<h2>8、随时防止会阴切口裂开</h2>
+<p>1) 便秘时，不可屏气用力扩张会阴部，可用开塞露</p>
+<p>2) 拆线后头两三天，避免做下蹲、用力动作</p>
+<p>3) 坐立时身体重心偏向没有侧切的一侧</p>
+<p>4) 避免大腿过度外展而使伤口裂开</p>
+<h2>9、出院前准备</h2>
+<p>新妈妈不要忽略头部、颈部、足部保暖，避免吹风多穿点；准备宝宝的纯棉小被子；核对宝宝卡介苗和乙肝第一剂是否完成；记下24小时儿科咨询电话</p>
+<h1>孕晚期注意事项</h1>
+<p>1、确认待产包东西是否齐全</p>
+<p>2、宫缩时间持续时间逐渐增长强度不断增加；见红、破水要及时去医院</p>
+<p>3、提前规划好去医院的路线，计算路程和时间，寻找备用路线以队方堵车</p>
+<p>4、优先顺产，恢复快生当天可下床休息，宝宝经过产道挤压，肺功能、皮肤神经得到按摩，对宝宝发育好</p>
+<p>5、分娩前保证充足休息，住院前应洗澡，因为产后不能马上洗澡。</p>
+<p>6、顺产前吃饱喝足如牛奶、酸奶、巧克力、面条排骨汤等容易消化吸收的食物，清淡的面食营养易消化，是临产的首选。</p>
+<p>7、剖腹产前一天晚上12点以后不吃东西，术前6-8小时不喝水</p>
+<h1>科学坐月子月子里的错误经验：</h1>
+<h2>一、捂月子</h2>
+<p><strong>错误经验</strong>：<br>
+1. 不必照单全收，要通风，但是你和宝宝换到另外一个房间去；或者每次只开一扇窗户别形成对流风，直接吹到你和宝宝；上午10点和下午3点前后是通风最佳时间<br>
+2. 不必外出<br>
+3. 夏天没必要包头巾穿得严实，感觉舒服即可</p>
+<h2>二、不能见风</h2>
+<p>只要不吹过堂风，空调，电扇不正对着自己吹即可</p>
+<h2>三、不能下床活动，要卧床休息</h2>
+<p>顺产妈妈产后68小时，剖宫产24小时后可下床活动，如果卧床不起会导致便秘子宫内膜</p>
+<p>炎、血管栓塞。</p>
+<h2>四、早喝、多喝浓汤</h2>
+<ol>
+<li>
+<p>不宜产后立即喝大量的汤催乳(鲫鱼汤、猪蹄汤、排骨汤)，刚出生宝宝吃奶少，分泌乳汁过多容易奶水淤积，影响哺乳；</p>
+</li>
+<li>
+<p>不宜天天喝浓汤，会让产妇发胖，宝宝很难吸收</p>
+</li>
+<li>
+<p>产后1周喝汤较好，瘦肉汤、蔬菜汤、蛋花汤、鲜鱼汤，保证汤和菜肉一块吃</p>
+</li>
+</ol>
+<h2>五、只喝小米粥</h2>
+<p>在月子期间小米粥很有营养，但是不能只喝这个，刚分娩后几天可以以小米粥等流质食物为主，后面要多补充营养成分。</p>
+<h2>六、多喝红糖水</h2>
+<p>产后以7-10天为宜，过多饮用会导致出汗多更虚，增加恶露中的血量引起贫血。产后血性恶露和浆性恶露转为白色恶露，就不宜用红糖，以免延长恶露排出的时间。多吃红枣、南瓜、葡萄、木耳等具有补血功效。(葡萄补血佳品，每周2-3次；南瓜蒸或煮粥；红枣煲汤放两三颗)</p>
+<h2>七、月子里不能洗头、洗澡</h2>
+<p>洗后赶紧裹干身体，及时穿好衣服，注意保暖即可，头发未干不要扎起来。</p>
+<h2>八、月子里不能刷牙</h2>
+<p>选择软毛牙刷，梳子的齿不要过于尖利，梳长发不要使劲拉拽即可。牙齿松动就要看医生是否补钙。</p>
+<h2>九、睡过软的床</h2>
+<p>分娩后骨盆尚未恢复，不利于翻身起身，产后最好睡硬板床。</p>
+<h2>十、食用人参滋补身体</h2>
+<p>产后不宜服用，会产生兴奋作用不利于休息；具有回奶作用，不宜食用。(炒麦芽、韭菜、韭黄、花椒；凉性食物菊花茶、薄荷都会造成回奶)</p>
+<h2>十一、产后要大补</h2>
+<p>桂圆，抑制子宫收缩，不利于产后子宫收缩回复，淤血排出，等恶露排出后再吃</p>
+<h2>十二、月子里多吃鸡蛋</h2>
+<p>鸡蛋过量食用，容易引起腹胀、便秘，要适量食用</p>
+<h2>十三、开奶后大量喝汤</h2>
+<p>刚出生宝宝吃的少，产后过早催乳，宝宝没吃完会造成乳汁淤积引起胀痛</p>
+<p>14、月子里不碰冷水、吹冷风，不开冰箱，容易落下月子病</p>
+<p>15、注意腰部保暖，可制作护腰</p>
+<p>16、穿戴脚后跟的棉拖鞋，冬季脚受凉会引发产后足或腹部不适；穿薄棉袜</p>
+<p>17、去除妊娠纹。多吃维他命b6的牛奶及奶制品；维生素C的蔬果；洗澡时打圈方式按摩；保证8小时以上睡眠调衡激素分泌；体育锻炼</p>
+<p>18、剖腹产术后7天内用腹带包裹腹部，拆线后不宜长期使用腹带带；内脏器官下垂要绑上腹带，复原后松开；</p>
+<p>19、在室内度过月子期，每天至少保持半小时的活动时间</p>
+<p>20、顺产56天内不能性生活；剖腹产在3个月后过性生活</p>
+<p>21、产后42天要做健康检查，了解身体的恢复情况，防止后遗症</p>
+<h1>居家环境与个人卫生</h1>
+<p>1、准妈妈回家前两天，房间打扫干净消毒</p>
+<p>2、每天开窗通风两三次，每次20-30分钟，通风宝宝和妈妈要去其他房间避免着凉。</p>
+<p>3、房间温度保持20-35度，冬季注意不能过于干燥，房间可放盆水提高湿度</p>
+<p>4、不要睡过软的床、棉质、麻质透气床品、一两周换洗暴晒一次</p>
+<p>5、感冒起初喉头痛痛时，用浓盐水每隔10分钟漱口；清淡鸡汤减轻感冒鼻塞流涕等症状</p>
+<p>6、穿棉质内衣衣，每天一换，上衣两天一换</p>
+<p>7、顺产2-5天可洗澡，不应早于24小时；剖腹产看伤口恢复，恢复的快2个星期后即可阴道内不要清洗；简单淋浴不超过5分钟</p>
+<p>8、月子里可洗澡，洗完及时吹干即可</p>
+<p>9、梳头发可用牛角梳；熟透不可用力；头发打结可用75%酒精梳理里</p>
+<p>10、刷牙要用温开水，产后前3天采用指漱，食指蘸上牙膏擦拭；第四天用软毛牙刷</p>
+<p>11、洗脸用温水；热水泡脚</p>
+<h1>产后恢复与健身</h1>
+<p>1、分娩后第一天适当的活动，顺产妈妈6-12个小时就能起床做轻微活动</p>
+<p>1) 屈伸手指：大拇指开始依次蜷起，再从小指依次展开</p>
+<p>2) 深呼吸</p>
+<p>3) 转肩运动</p>
+<p>4) 背、腕伸展运动</p>
+<p>2、剖宫产产后2周后做简单运动</p>
+<h1>预防月子病</h1>
+<h2>重视性恶露不尽</h2>
+<p>1、恶露2-4周；如果持续2周以上、量多或持续时间长有脓性、臭味，要及时就医</p>
+<p>2、猪肝、红糖有助于排出恶露</p>
+<p>3、大小便后用温水冲洗会阴，擦拭从前往后</p>
+<p>4、用卫生巾垫，刚开始每小时更换，之后两三小时更换排尿</p>
+<p>1、产后46小时内能自己排尿，超过6小时会妨碍子宫收缩引起产后出血</p>
+<p>2、不排尿可用便盆内放热水，坐在上面熏</p>
+<p>3、小腹部放热水袋或艾条熏灸</p>
+<h2>乳头皲裂</h2>
+<p>1、每次喂奶不超过20分钟，含住乳头乳晕</p>
+<p>2、裂开可用熟的食用油抹伤口</p>
+<p>3、喂奶前可先挤一点奶出来，有利于吮吸</p>
+<p>4、乳头破裂严重，停止喂奶24-48小时，用吸奶器吸奶</p>
+<h2>缓解乳房胀痛</h2>
+<p>1、多让宝宝吸吮</p>
+<p>2、洗净双手，轻轻从乳房四周向乳头方向按摩挤压</p>
+<p>3、把冰块用毛巾包裹冷敷</p>
+<h2>产后便秘</h2>
+<p>1、多喝水、多吃新鲜水果、全麦或糙米食品</p>
+<p>2、常下床走行，帮助肠胃蠕动</p>
+<p>3、学会休息和宝宝调至一致</p>
+<p>4、多吃木耳、海带、冬菇、竹笋、胡萝卜、菠菜、香蕉、柠檬，防止产后痔疮（散步、产后康复操、每天晨起适度的提肛动作，养成定时排便习惯）</p>
+<p>去水肿(补肾活血汤：去除身体水分)</p>
+<p>薏仁红豆汤：补血、通乳、强健肠胃</p>
+<p>红糖生姜水：生姜连皮用水煮，活血，预防感冒</p>
+<p>在饮食清淡不要太咸，补充脂肪较少的瘦肉或鱼类，避免增加肾脏负担发声水肿</p>
+<p>按摩腹部化解产后疼痛</p>
+<p>轻柔按摩腹部，促进子宫收缩和恶露的排出</p>
+<h2>产后虚弱巧补养</h2>
+<p>1、注意休息保证睡眠</p>
+<p>2、选择富含铁的：动物内脏、海带、紫菜、菠菜、西红柿市、桂圆、红枣、花生</p>
+<p>3、蛋白质的食物：鸡、鱼、瘦肉、动物肝脏、牛奶、豆类</p>
+<p>4、产后第周，剖腹产伤口基本愈合，适量进补，身体会恢复的比较快</p>
+<h2>产后通风</h2>
+<p>1、产后注意保暖，尤其头部和脚步保暖</p>
+<p>2、室内通风透气，但不可直接吹风</p>
+<p>3、室内保持干燥，避免潮湿</p>
+<h1>产后护理</h1>
+<p>（DAY1产后24小时最关键）</p>
+<h1>顺产月子期42天，剖腹产56天</h1>
+<p>1、剖宫产后6小内，躺床上头偏向一侧(预防呕吐物误吸)、去枕平卧6个小时(预防头痛)；剖宫产6小时后，垫上枕头，鼓励翻身，采取半卧位的姿势势，可使子宫腔内积血排出(身体和床20-30度为宜)；术后24小时内要卧床休息，每隔三四个小时翻身。</p>
+<p>2、剖宫产术后6小时内禁食，少吃易产气食物；术后6小时内禁饮，实在口渴，可以用棉签蘸水涂抹嘴唇；术后6小时喝温开水，刺激肠道蠕动</p>
+<p>3、放置于伤口的沙袋一定要保持压迫6小时，以减少刀口深层组织渗血</p>
+<p>4、排气后可进食。刚开始进食不要吃巧克力、果汁、牛奶等，选择流质食物花生红枣小米粥；</p>
+<p>大量排气后，可由流质改为半流质，如蛋汤、粥、面条等；然后向固体食物渐进，不宜过饱</p>
+<p>5、多食用萝卜汤，增强肠蠕动，促进排气；少吃易产气食物，如糖类、豆类、淀粉类；禁止过早食鸡汤、鲫鱼汤等催乳食物。</p>
+<p>6、产后注意排尿。导尿管拔掉后，有尿意要自行解小便，防止尿路感染；尿管拔出后增加引水量。多饮水多排尿，可冲洗尿道，防止感染。</p>
+<p>7、24小时内关注阴道出血量、超过月经量，及时通知医生；产后24小时内若感到会阴部或者肛门有下坠不适，疼痛难请咨询医生</p>
+<p>8、顺产4小时即可排尿，排不出可把水龙头打开诱导尿意；温水袋热敷小腹</p>
+<p>9、顺产后68小时可第一次下床，5-10分钟。会阴撕裂、侧切坚持68小时第一次下床活动</p></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev" href="剖腹产42天月子餐.html"><span class="cn-label">← 上一章</span><span class="cn-title">剖腹产 42 天月子餐</span></a><a class="next" href="在做一次月子一定会做的35件事.html"><span class="cn-label">下一章 →</span><span class="cn-title">再做一次月子一定会做的 35 件事</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
