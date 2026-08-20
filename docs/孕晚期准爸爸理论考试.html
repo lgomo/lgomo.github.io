@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>孕晚期准爸爸理论考试（答案版） · 宝宝好</title>
+<style>
+:root {
+  --bg:#fdfaf6; --panel:#ffffff; --ink:#2c2a26; --muted:#7a7368; --line:#ece6dc;
+  --accent:#e89a9a; --accent-2:#f4c7b8; --soft:#f7ede4; --highlight:#fff3a8;
+  --link:#b85c5c; --shadow:0 2px 14px rgba(180,140,120,.10);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, #fde6e0, #fdeede);
+  border-bottom: 1px solid var(--line); padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.brand .logo { font-size: 22px; }
+.brand small { color: var(--muted); font-weight: 400; margin-left: 6px; font-size: 12px; }
+.topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.btn-link { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; font-size: 13px; color: #5a4a3f; cursor: pointer;
+  transition: .15s; display: inline-block; }
+.btn-link:hover { background: var(--soft); border-color: var(--accent-2); text-decoration: none; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+aside { width: 280px; flex-shrink: 0; background: var(--panel);
+  border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto;
+  position: sticky; top: 60px; height: calc(100vh - 60px); }
+.cat { margin-bottom: 14px; }
+.cat-title {
+  font-weight: 600; font-size: 14px; padding: 8px 10px; color: #5a4a3f;
+  display: flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px;
+  cursor: pointer; user-select: none; transition: background .15s;
+}
+.cat-title:hover { background: #f0e2d6; }
+.cat-title:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cat-title .icon { font-size: 16px; }
+.cat-title .cat-name { flex: 1; }
+.cat-title .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.cat-title .toggle { display: inline-block; font-size: 12px; color: var(--muted);
+  transition: transform .2s; line-height: 1; }
+.cat.collapsed .toggle { transform: rotate(-90deg); }
+.cat.collapsed .doc-list { display: none; }
+.cat-title:hover .toggle { color: var(--accent); }
+.doc-list { list-style: none; padding: 6px 0 0 8px; margin: 0; }
+.doc-list li { margin: 0; }
+.doc-list a {
+  display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #4a3f36;
+  border-left: 2px solid transparent; transition: .15s;
+}
+.doc-list a:hover { background: var(--soft); text-decoration: none; }
+.doc-list a.active { background: #fce0dd; border-left-color: var(--accent); color: #9b3b3b; }
+
+main { flex: 1; padding: 28px 36px; max-width: 1000px; }
+.doc { background: var(--panel); border-radius: 12px; padding: 26px 32px; margin-bottom: 20px;
+  box-shadow: var(--shadow); border: 1px solid var(--line); }
+.doc-head { border-bottom: 1px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+.doc-cat { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.doc-title { margin: 4px 0 6px; font-size: 22px; color: #3d2f25; }
+.doc-body h1, .doc-body h2, .doc-body h3 { color: #3d2f25; margin-top: 1.4em; }
+.doc-body h2 { font-size: 19px; border-left: 4px solid var(--accent); padding-left: 10px; }
+.doc-body h3 { font-size: 16px; color: #5a4a3f; }
+.doc-body table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  background: #fff; border-radius: 6px; overflow: hidden; }
+.doc-body th { background: var(--soft); text-align: left; padding: 8px 10px; font-weight: 600;
+  border-bottom: 1px solid var(--line); }
+.doc-body td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body tr:hover td { background: #fcf6ef; }
+.doc-body ol, .doc-body ul { padding-left: 22px; }
+.doc-body li { margin: 4px 0; }
+.doc-body blockquote { border-left: 3px solid var(--accent); background: var(--soft);
+  margin: 10px 0; padding: 8px 14px; color: #5a4a3f; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+
+.chapter-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.chapter-nav a { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; color: #4a3f36; transition: .15s;
+  display: flex; flex-direction: column; gap: 4px; min-height: 80px; }
+.chapter-nav a:hover { border-color: var(--accent-2); background: #fff7f1; text-decoration: none; }
+.chapter-nav .cn-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.chapter-nav .cn-title { font-size: 15px; font-weight: 600; color: #3d2f25; line-height: 1.4; }
+.chapter-nav .next { text-align: right; align-items: flex-end; }
+.chapter-nav a.disabled { opacity: .4; pointer-events: none; cursor: default; }
+
+.catalog { padding: 28px 36px; max-width: 1100px; margin: 0 auto; }
+.catalog-intro { padding: 8px 0 24px; color: var(--muted); font-size: 14px; }
+.cat-group { margin-bottom: 28px; }
+.cat-group-title { font-size: 18px; font-weight: 700; color: #3d2f25; margin: 8px 0 12px;
+  display: flex; align-items: center; gap: 6px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-2); }
+.cat-group-icon { font-size: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 16px 18px; transition: .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); border-color: var(--accent-2);
+  box-shadow: 0 6px 18px rgba(180,140,120,.15); text-decoration: none; }
+.card-title { font-size: 15px; font-weight: 600; color: #3d2f25; margin-bottom: 6px;
+  display: flex; justify-content: space-between; align-items: center; }
+.card-arrow { color: var(--accent); font-size: 14px; }
+.card-meta { font-size: 12px; color: var(--muted); }
+.card-counter { display: inline-block; padding: 2px 8px; background: var(--soft);
+  border-radius: 999px; font-size: 11px; color: #5a4a3f; margin-right: 6px; }
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  aside { width: 100%; height: auto; position: relative; top: 0;
+    border-right: 0; border-bottom: 1px solid var(--line); }
+  main { padding: 16px; }
+  .doc { padding: 18px; }
+  .doc-title { font-size: 18px; }
+  .chapter-nav { grid-template-columns: 1fr; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo">🍼</span>宝宝好 · 孕产育儿资料库<small>第 4 / 20 章</small></a>
+  <div class="topbar-actions">
+    <a class="btn-link" href="../index.html">📑 返回目录</a>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="cat" data-cat="pregnancy"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🤰</span><span class="cat-name">孕期</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="怀孕1_40周一张表讲清楚.html" data-slug="怀孕1_40周一张表讲清楚">怀孕1-40周一张表讲清楚</a></li><li><a href="孕期食谱.html" data-slug="孕期食谱">孕期食谱</a></li><li><a href="准爸爸备忘录.html" data-slug="准爸爸备忘录">准爸爸备忘录</a></li><li><a href="孕晚期准爸爸理论考试.html" class="active" data-slug="孕晚期准爸爸理论考试">孕晚期准爸爸理论考试（答案版）</a></li></ul></div>
+<div class="cat" data-cat="hospital"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👜</span><span class="cat-name">待产与入院</span><span class="count">(3)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="XLSX_MOM.html" data-slug="XLSX_MOM">2026 待产包·妈妈用品清单</a></li><li><a href="XLSX_BABY.html" data-slug="XLSX_BABY">2026 待产包·宝宝用品清单</a></li><li><a href="XLSX_HOSP.html" data-slug="XLSX_HOSP">2026 待产包·入院清单（精简版）</a></li></ul></div>
+<div class="cat" data-cat="postpartum"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🌙</span><span class="cat-name">产后月子</span><span class="count">(8)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="崔玉涛顺产1_42天日程表.html" data-slug="崔玉涛顺产1_42天日程表">崔玉涛 · 顺产 1-42 天日程表</a></li><li><a href="崔玉涛刨妇产1_42天日程表.html" data-slug="崔玉涛刨妇产1_42天日程表">崔玉涛 · 剖腹产 1-42 天日程表</a></li><li><a href="42天顺产剖腹产日程表.html" data-slug="42天顺产剖腹产日程表">42 天顺产剖腹产日程表</a></li><li><a href="42天月子餐打印照着吃.html" data-slug="42天月子餐打印照着吃">42 天月子餐（打印照着吃）</a></li><li><a href="剖腹产42天月子餐.html" data-slug="剖腹产42天月子餐">剖腹产 42 天月子餐</a></li><li><a href="月嫂整理的坐月子经验.html" data-slug="月嫂整理的坐月子经验">月嫂整理的坐月子经验</a></li><li><a href="在做一次月子一定会做的35件事.html" data-slug="在做一次月子一定会做的35件事">再做一次月子一定会做的 35 件事</a></li><li><a href="XLSX_MEAL.html" data-slug="XLSX_MEAL">月子餐 42 天食谱（详）</a></li></ul></div>
+<div class="cat" data-cat="newborn"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">👶</span><span class="cat-name">新生儿护理</span><span class="count">(4)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="0_12个月护理指南.html" data-slug="0_12个月护理指南">0-12 个月护理指南</a></li><li><a href="宝宝第一年每个月要小心的事.html" data-slug="宝宝第一年每个月要小心的事">宝宝第一年每个月要小心的事</a></li><li><a href="新生儿第二个月31件事.html" data-slug="新生儿第二个月31件事">新生儿第二个月 31 件事</a></li><li><a href="崔玉涛0_3个月养护指南.html" data-slug="崔玉涛0_3个月养护指南">崔玉涛 0-3 个月养护指南</a></li></ul></div>
+<div class="cat" data-cat="feeding"><div class="cat-title" role="button" tabindex="0" aria-expanded="true"><span class="icon">🍼</span><span class="cat-name">母乳喂养</span><span class="count">(1)</span><span class="toggle" aria-hidden="true">▾</span></div><ul class="doc-list"><li><a href="一次性说清开奶_追奶_堵奶.html" data-slug="一次性说清开奶_追奶_堵奶">一次性说清开奶、追奶、堵奶</a></li></ul></div>
+  </aside>
+  <main>
+    <article class="doc">
+      <header class="doc-head">
+        <div class="doc-cat"><span class="icon">🤰</span>孕期</div>
+        <h2 class="doc-title">孕晚期准爸爸理论考试（答案版）</h2>
+      </header>
+      <div class="doc-body"><h1>孕晚期准爸爸理论考试</h1>
+<h3>一、单项选择题（共 10 题，每题 1 分）</h3>
+<p><strong>1. 宝宝多少周足月？（A）</strong></p>
+<ul>
+<li>A. 37 周</li>
+<li>B. 38 周</li>
+<li>C. 39 周</li>
+<li>D. 40 周</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 28 周-36 周+6 为早产、37 周-41 周+6 为足月产</p>
+<hr>
+<p><strong>2. 开封后的奶粉保质期多久？（D）</strong></p>
+<ul>
+<li>A. 3 年</li>
+<li>B. 2 年</li>
+<li>C. 1 年</li>
+<li>D. 1 个月内食用完毕</li>
+</ul>
+<p><strong>答案：D</strong></p>
+<p><strong>解释：</strong> 奶粉开罐后与空气接触，时间长易导致细菌滋生破坏其中营养物质。开罐一个月的奶粉不要给宝宝喝了，可以给爸爸喝</p>
+<hr>
+<p><strong>3. 老婆产后一般多少天去复查？（B）</strong></p>
+<ul>
+<li>A. 30 天</li>
+<li>B. 42 天</li>
+<li>C. 7 天</li>
+<li>D. 15 天</li>
+</ul>
+<p><strong>答案：B</strong></p>
+<p><strong>解释：</strong> 产后复查并非一定在第 42 天，产后 42-56 天期间均可。复查是为了检查身体器官是否恢复至孕前状态，早发现、早干预，</p>
+<hr>
+<p><strong>4. 怎么判断宝宝冷热？（A）</strong></p>
+<ul>
+<li>A. 摸宝宝的后脖颈</li>
+<li>B. 摸宝宝的手</li>
+<li>C. 摸宝宝的脚</li>
+<li>D. 以老人温度判断</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 新生儿末梢神经循环发育不完善，手脚距离心脏较远，手脚发凉不代表冷。后颈部干爽、手脚温热不凉，代表温度正好</p>
+<p><strong>5. 老婆顺产的话（A）可以扶她下床走动。</strong></p>
+<ul>
+<li>A. 8-12 小时</li>
+<li>B. 24 小时</li>
+<li>C. 2 小时</li>
+<li>D. 随时</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 老婆顺产的话（8-12 小时）可以扶她下床走动。身体状况允许的情况下，尽早下地，可促进血液循环、预防深静脉血栓形成、缓解便秘等不适症状。</p>
+<hr>
+<p><strong>6. 老婆顺产后（B）要及时排尿，没有的话要及时叫医生。</strong></p>
+<ul>
+<li>A. 1 小时内</li>
+<li>B. 2-6 小时内</li>
+<li>C. 8 小时内</li>
+<li>D. 12 小时内</li>
+</ul>
+<p><strong>答案：B</strong></p>
+<p><strong>解释：</strong> 若 4 小时后仍未排尿，建议尽快找医生就诊，以免发生尿液滞留。尿液滞留会提高泌尿道感染的机会，且胀满的膀胱也可能使子宫移位，影响子宫收缩，甚至造成子宫出血。</p>
+<hr>
+<p><strong>7. 宝宝超过（A）小时没有排出胎便要叫医生。</strong></p>
+<ul>
+<li>A. 24 小时</li>
+<li>B. 48 小时</li>
+<li>C. 4 小时</li>
+<li>D. 12 小时</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 新生儿一般出生 24 小时内就会出现排便，最长不超过 48 小时，若一直不排便，需及时 B 超排除肛门先天性发育问题，</p>
+<hr>
+<p><strong>8. 没满月的宝宝（A）喂一次奶。</strong></p>
+<ul>
+<li>A. 2-3 小时</li>
+<li>B. 5-6 小时</li>
+<li>C. 6-8 小时</li>
+<li>D. 睡醒就喂</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 新生儿按需喂养，根据胃容量，1-3 天每次 5-15ml，4-7 天每次 25-50ml，7-15 天 60-90ml，16 天后约 90ml。</p>
+<p><strong>9. 以下哪个是宝宝的退烧 yao（A）？</strong></p>
+<ul>
+<li>A. 布洛芬（泰诺林或美林）</li>
+<li>B. 妈咪爱</li>
+<li>C. 蒙脱石散</li>
+<li>D. 西替利嗪</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 2-6 月龄选泰诺林，6 月龄以上选美林。不可混吃。</p>
+<hr>
+<p><strong>10. 宝宝满月时要接种（A）</strong></p>
+<ul>
+<li>A. 乙肝疫苗</li>
+<li>B. 卡介苗</li>
+<li>C. 水痘疫苗</li>
+<li>D. 麻腮风疫苗</li>
+</ul>
+<p><strong>答案：A</strong></p>
+<p><strong>解释：</strong> 出生 24 小时内接种乙肝疫苗第一针、卡介苗。</p>
+<h3>二、多项选择题（共 8 题，每题 2 分）</h3>
+<p><strong>1. 以下哪些属于临产征兆？（BCD）</strong></p>
+<ul>
+<li>A. 假性宫缩</li>
+<li>B. 规律宫缩</li>
+<li>C. 见红</li>
+<li>D. 破水</li>
+</ul>
+<p><strong>答案：BCD</strong></p>
+<hr>
+<p><strong>2. 宝宝一出生需要接种什么疫苗？（AC）</strong></p>
+<ul>
+<li>A. 乙肝疫苗</li>
+<li>B. 水痘疫苗</li>
+<li>C. 卡介苗</li>
+<li>D. 麻腮风疫苗</li>
+</ul>
+<p><strong>答案：AC</strong></p>
+<hr>
+<p><strong>3. 以下哪些是坐月子谣言？（ABCD）</strong></p>
+<ul>
+<li>A. 不能洗澡</li>
+<li>B. 不能洗头</li>
+<li>C. 不能吹空调</li>
+<li>D. 需要长期卧床休息</li>
+</ul>
+<p><strong>答案：ABCD</strong></p>
+<p><strong>解释：</strong> 顺产产后一周可洗澡洗头，注意立即擦干吹干，剖腹产需待伤口愈合后洗澡。空调注意不直吹、保持适宜的温度和湿度</p>
+<hr>
+<p><strong>4. 以下哪些育儿方式是错误的？（ABCD）</strong></p>
+<ul>
+<li>A. 不按比例冲奶</li>
+<li>B. 把屎把尿</li>
+<li>C. 给宝宝绑脚</li>
+<li>D. 给宝宝捏乳头</li>
+</ul>
+<p><strong>答案：ABCD</strong></p>
+<p><strong>解释：</strong> 不按比例冲奶营养不均衡，把屎把尿影响脊柱发育，绑脚影响骨骼发育及血液循环，给宝宝捏乳头易引起感染。</p>
+<hr>
+<p><strong>5. 决定顺产还是剖腹产的因素是什么？（ABCD）</strong></p>
+<ul>
+<li>A. 产力</li>
+<li>B. 胎儿状态</li>
+<li>C. 胎位</li>
+<li>D. 准妈妈的精神状态</li>
+</ul>
+<p><strong>答案：ABCD</strong></p>
+<p><strong>解释：</strong> 胎儿体重尽量控制在 5-7 斤，体重&gt;4500g 建议剖宫产</p>
+<hr>
+<p><strong>6. 判断奶量是否充足可以通过新生儿的哪些指标进行判断（ABCD）</strong></p>
+<ul>
+<li>A. 体重增长</li>
+<li>B. 大小便次数</li>
+<li>C. 吃奶次数</li>
+<li>D. 两次哺乳之间的睡眠</li>
+</ul>
+<p><strong>答案：ABCD</strong></p>
+<hr>
+<p><strong>7. 宝宝 72 小时内要做的检查（BC）</strong></p>
+<ul>
+<li>A. 体格检查</li>
+<li>B. 采足跟血</li>
+<li>C. 听力筛查</li>
+<li>D. 乙肝排查</li>
+</ul>
+<p><strong>答案：BC</strong></p>
+<hr>
+<p><strong>8. 以下什么原因可能会引起宝宝湿疹（ABC）</strong></p>
+<ul>
+<li>A. 过敏</li>
+<li>B. 干燥</li>
+<li>C. 遗传</li>
+<li>D. 出汗</li>
+</ul>
+<p><strong>答案：ABC</strong></p>
+<h3>三、判断题（共 7 道题，每题 2 分）</h3>
+<p><strong>1. 冲奶粉先放水再放奶粉、或先放奶粉再放水都可以。（X）</strong></p>
+<p><strong>答案：X（错误）</strong></p>
+<p><strong>解释：</strong> 泡奶应先放水再放奶粉，能更好的掌握比例，避免因先放奶粉而导致的比例失调过浓影响宝宝的吸收。同时能掌控水温</p>
+<p><strong>2. 月子期间注意通风换气，保持空气流通，（Y）</strong></p>
+<p><strong>答案：Y（正确）</strong></p>
+<hr>
+<p><strong>3. 宝宝出生后第 15 天开始，每天补充维生素 AD、D3。（Y）</strong></p>
+<p><strong>答案：Y（正确）</strong></p>
+<p><strong>解释：</strong> 维生素 A 预防夜盲症、D 预防佝偻病和骨质疏松症，D3 难以从食物中获取，需单独补充促进钙吸收。建议持续补充到 3 岁</p>
+<hr>
+<p><strong>4. 产后坐月子要第一时间让老婆多喝补汤下奶。（X）</strong></p>
+<p><strong>答案：X（错误）</strong></p>
+<p><strong>解释：</strong> 产后第一天先吃流质食物，以清淡为主，不能喝大补汤油腻的荤汤，会引起堵奶或发烧。产后 3-4 周可以多喝补汤。剖宫产需排气后才能进食。</p>
+<hr>
+<p><strong>5. 未满 6 个月的宝宝除了喝母乳也要多喝水。（X）</strong></p>
+<p><strong>答案：X（错误）</strong></p>
+<p><strong>解释：</strong> 0-6 个月宝宝一般不需要喝水，宝宝肾脏发育不完善，摄入过多水分加重肾脏负担，甚至可能出现水中毒。</p>
+<hr>
+<p><strong>6. 宝宝头型不好看，月子里就开始给他枕枕头。（X）</strong></p>
+<p><strong>答案：X（错误）</strong></p>
+<p><strong>解释：</strong> 新生儿不建议枕枕头，新生儿脊柱平直，头容易导致呼吸不通畅，且影响脊柱发育，</p>
+<hr>
+<p><strong>7. 泡奶粉时可以大力摇晃奶瓶帮助奶粉溶解。（X）</strong></p>
+<p><strong>答案：X（错误）</strong></p>
+<p><strong>解释：</strong> 泡奶时不能暴力晃动奶瓶，以免产生大量气体，新生儿容易胀气，喝完容易吐奶和腹胀。</p>
+<h3>四、简答题（共 12 题，每题 5 分，意思对即可）</h3>
+<p><strong>1. 临产三大征兆是什么？要怎么做？</strong></p>
+<p><strong>答案：</strong></p>
+<p>(1) 见红：Y 道有少量鲜红色或棕色黏液流出。见红后一般 24-48 小时就会分娩，出血量不多可以先洗头洗澡，垫上姨妈巾，收拾东西再去医院。如果出血量大，并且伴有规律宫缩，为了稳妥起见及时去医院。</p>
+<p>(2) 规律宫缩：宫缩间隔时间越来越短，持续时间越来越长，强度越来越大，每 3-5 分钟一次，每次持续 30-60 秒，及时去医院</p>
+<p>(3) 破水：Y 道突然有温热的液体流出，无色无味，流出时不受控制。这时候无论有无宫缩或见红都要马上去医院！一旦破水，保持平躺，将枕头或垫子垫在屁股下，减少羊水流出，必要时叫救护车。羊水大量流出易造成宝宝缺氧、脐带脱垂或宫内感染等发生</p>
+<p><strong>2. 怎么给老婆换产褥垫？</strong></p>
+<p><strong>答案：</strong></p>
+<p>(1) 让老婆双腿并拢、屈膝，一手扶老婆肩膀，一手托着老婆膝盖，轻轻帮老婆翻身。</p>
+<p>(2) 把脏的产褥垫对折塞到一边，再把新的产褥垫放进去</p>
+<p>(3) 同样的方式把老婆翻到另一侧，把旧的产褥垫拿走，把新的产褥垫铺开，把老婆扶正放平双腿，盖好被子。</p>
+<hr>
+<p><strong>3. 如何给宝宝冲奶？</strong></p>
+<p><strong>答案：</strong></p>
+<p>用 40-50°C 的温水冲泡（忌用开水），先加水再加奶粉（注意：取奶粉每勺都是平勺，按照说明量取奶粉）。双手手掌夹紧奶瓶，手搓瓶身摇匀，不能上下左右摇晃会产生气体，宝宝喝了会吐奶和腹胀。最后拧开盖子排气。给宝宝喂奶前，用手臂测一下奶的温度</p>
+<p><strong>备注：</strong> 已经泡好的奶粉常温下存放不超过 2 小时，</p>
+<hr>
+<p><strong>4. 怎么给宝宝拍隔？</strong></p>
+<p><strong>答案：</strong> 肩上垫上一块拍嗝巾，抱起宝宝趴在肩上，一只手托住宝宝的屁屁，一只手空心掌从下往上拍，大约一秒一次，如果拍不出来，就先竖抱一会儿。</p>
+<p>如果宝宝在吃奶过程中哭了就要先停止喂奶，先拍再继续喂</p>
+<hr>
+<p><strong>5. 宝宝吐奶怎么办？</strong></p>
+<p><strong>答案：</strong> 如果宝宝吐奶，千万不要竖抱。让宝宝侧头侧身给他拍背，让宝宝把奶吐出来擦干净嘴角即可，</p>
+<hr>
+<p><strong>6. 新生儿需要睡枕头吗？为什么？</strong></p>
+<p><strong>答案：</strong> 不需要。新生儿背部、颈部、头部处于同一水平上，脊柱比较柔软还没有形成生理弯曲，处于平直的状态。这时给新生儿枕枕头，容易造成新生儿的颈椎弯曲或者过度前屈还可能会影响到新生儿的呼吸状态，不利于新生儿的生长发育。</p>
+<hr>
+<p><strong>7. 如何给宝宝洗屁股、换纸尿裤？</strong></p>
+<p><strong>答案：</strong></p>
+<p>(1) 小月龄屁屁非常娇嫩，一个不小心就容易红屁股，尿不湿要每 2 小时更换一次。如果拉便便了要立马清洗更换，</p>
+<p>(2) 用流动温水冲洗，从前往后，湿润棉柔巾轻轻蘸拭屁屁，不要来回擦拭会摩擦导致红屁股。清洗完毕后用云柔巾轻轻蘸干水分，并完全晾干后，涂抹护臀膏。</p>
+<p>(3) 尿不湿使用前先揉搓致其柔软。小月龄采取侧身垫入尿不湿的方法，不要抬起双腿垫入尿不湿，新手不熟练容易抬举过度伤害</p>
+<p>宝宝脊柱。男宝尿不湿前长后短，女宝尿不湿前短后长，</p>
+<p>(4) 将两侧魔术贴对称贴好，两边无纺布要铺平。码数偏大魔术贴可往上贴，码数偏小往下贴，码数刚好贴中间。</p>
+<p>(5) 将两侧防侧漏边挖出，男宝从下往上拉，女宝从上往下拉。</p>
+<p>(6) 腰部宽松度以放入两根手指正好、一根手指略紧作为标准</p>
+<p>(7) 将腰部无纺布折叠，不要挡住肚脐眼。</p>
+<p>(8) 若是男宝，换尿不湿时用新尿片盖住，以免被突然袭击。</p>
+<hr>
+<p><strong>8. 如何给宝宝的脐带消毒？</strong></p>
+<p><strong>答案：</strong> 消毒护理前先洗净双手，脐部周围及凹槽部分水分擦干。左手轻提脐带绳子，右手用碘伏棉签，逆时针在脐带根部转一圈。接着消毒脐窝，用新棉签，顺时针在脐带根部转一圈，最后消毒脐周，在脐周皮肤 2cm 处画圈消毒。</p>
+<hr>
+<p><strong>9. 如何给宝宝剪指甲？</strong></p>
+<p><strong>答案：</strong> 用宝宝专用的指甲剪等宝宝熟睡后再操作，如果期间醒来先暂停，避免宝宝乱动被指甲剪刮伤。将宝宝五指分开剪，先剪中间，再剪两边，以便更好控制修剪的长度和力度，最后做好修圆工作，建议修剪成弧形，避免宝宝抓伤自己。</p>
+<p><strong>10. 如何给宝宝洗澡？</strong></p>
+<p><strong>答案：</strong></p>
+<p>(1) 室温 26-28°C 为宜，水温夏天 36°C，冬天 38°C，湿疹宝宝可适当减少一两度（过热会导致湿疹加剧）。洗澡时间最好选择在两次喂奶之间，喂奶后 1-2 小时，宝宝清醒的时候。</p>
+<p>(2) 先帮宝宝清洗脸和头，将宝宝面向自己，用一只手托住宝宝的头，前臂支撑住宝宝的脊背和臀部，另一手用纱布蘸水轻攥半干，擦拭宝宝的脸部。</p>
+<p>(3) 以同样姿势，给宝宝洗头的时候，同时用手指将宝宝耳廓向前折，轻轻压住耳朵以避免耳道进水；不用每次都用洗发水。</p>
+<p>(4) 洗身体时，用前臂支撑住宝宝头颈部及背部，将宝宝的下半身放入水中，洗宝宝的小胸脯、四肢、颈部、腋下、大腿根部等，褶皱部位要着重清洗</p>
+<p>(5) 把宝宝翻过来，用手轻抚宝宝脖颈，让宝宝上半身趴在手臂上清洗后背。</p>
+<p>(6) 帮宝宝擦干身体，涂抚触油并做抚触操，同时涂抹婴儿润肤露锁水保湿</p>
+<p><strong>11. 如何给宝宝穿衣服？</strong></p>
+<p><strong>答案：</strong></p>
+<p>(1) 宝宝衣服展开平铺，把宝宝放在衣服上，脖子对准衣领处</p>
+<p>(2) 将宝宝的袖子折叠成圆圈圈状，大人的手从袖口传过去，握住宝宝手腕，从袖圈中轻轻拉出来。</p>
+<p>(3) 两只袖口都穿好后，系好系带，整理平整。</p>
+<p><strong>备注：</strong> 小月龄避开套头和分体衣，建议包屁衣、连体衣。</p>
+<hr>
+<p><strong>12. 怎么给宝宝护理乳痂？</strong></p>
+<p><strong>答案：</strong> 婴儿刚出生时，皮肤表面有一层油脂，是由皮肤和上皮细胞分泌物所形成的黄白色物质。</p>
+<p>建议洗澡前宝宝头皮干燥时，在乳痂上涂抹婴儿油等油脂，可以厚涂并保留 30 分钟左右，等油脂彻底浸润乳痂，再常规清洗浸润后清洗前，可以用软布擦或用小梳子梳去乳痂，注意力度不要太重，且应顺着毛发的生长方向擦拭、梳理，以免弄伤宝宝。</p>
+<hr>
+<h2>准爸爸们都得了多少分？</h2></div>
+    </article>
+    <nav class="chapter-nav"><a class="prev" href="准爸爸备忘录.html"><span class="cn-label">← 上一章</span><span class="cn-title">准爸爸备忘录</span></a><a class="next" href="XLSX_MOM.html"><span class="cn-label">下一章 →</span><span class="cn-title">2026 待产包·妈妈用品清单</span></a></nav>
+  </main>
+</div>
+<script>
+const SB_KEY = 'babygood_sidebar_v1';
+function saveSidebar(){
+  const m = {};
+  document.querySelectorAll('.cat').forEach(c => {
+    m[c.dataset.cat] = c.classList.contains('collapsed') ? 0 : 1;
+  });
+  try { localStorage.setItem(SB_KEY, JSON.stringify(m)); } catch(e) {}
+}
+function loadSidebar(){
+  let m = null;
+  try { m = JSON.parse(localStorage.getItem(SB_KEY) || 'null'); } catch(e) {}
+  if (!m) return;
+  document.querySelectorAll('.cat').forEach(c => {
+    if (m[c.dataset.cat] === 0) {
+      c.classList.add('collapsed');
+      const t = c.querySelector('.cat-title');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+loadSidebar();
+document.querySelectorAll('.cat-title').forEach(t => {
+  const toggle = (e) => {
+    if (e.target.closest('a')) return;
+    const cat = t.parentElement;
+    const collapsed = cat.classList.toggle('collapsed');
+    t.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    saveSidebar();
+  };
+  t.addEventListener('click', toggle);
+  t.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
+});
+// 键盘 ←/→ 切换上一/下一章
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const prev = document.querySelector('.chapter-nav a.prev:not(.disabled)');
+  const next = document.querySelector('.chapter-nav a.next:not(.disabled)');
+  if (e.key === 'ArrowLeft' && prev) { prev.click(); }
+  else if (e.key === 'ArrowRight' && next) { next.click(); }
+});
+</script>
+</body>
+</html>
